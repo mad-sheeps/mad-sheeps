@@ -18,3 +18,7 @@
 *.opendb
 *.VC.db
 *.unitypackage
+
+# Plastic SCM 관련 파일 무시
+plastic/
+.plastic
