@@ -1,4 +1,0 @@
-repository "mad-sheep/mad-sheep@14569598283826@cloud"
-  path "/"
-    br "/main"
-    co "/main"
