@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      R1_spinning_ground_0: 3466830457124787113
+      R1_spinning_ground_1: 8655408203537593930
+      R1_spinning_ground_2: -1735626986314112126
+      R1_spinning_ground_3: -1175542089637057606
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
