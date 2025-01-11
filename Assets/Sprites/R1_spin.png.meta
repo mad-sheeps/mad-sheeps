@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2fecb4b7742644d4fbf74996c7c4e41b
+guid: d6984b82d2dd7ae4491d87d13206f538
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6538697343730040162
-    second: R1_seesaw_ground_0
+      213: -3479800039051769397
+    second: R1_spin_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: R1_seesaw_ground_0
+      name: R1_spin_0
       rect:
         serializedVersion: 2
         x: 263
-        y: 146
-        width: 170
-        height: 128
+        y: 344
+        width: 41
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26db1d2379e1eba50800000000000000
-      internalID: 6538697343730040162
+      spriteID: bc9cdee1d4445bfc0800000000000000
+      internalID: -3479800039051769397
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      R1_seesaw_ground_0: 6538697343730040162
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
