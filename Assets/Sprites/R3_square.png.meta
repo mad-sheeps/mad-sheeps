@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 0204621b3f5394653a9b92adc456571e
+guid: bba53ac516b4fe74893bdea934ab7ced
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8175610638809443950
-    second: R3_Wolf_0
+      213: 6970725589758651175
+    second: R3_square_0
   - first:
-      213: 1902448018648782629
-    second: R3_Wolf_1
+      213: -3040207165299500011
+    second: R3_square_1
   - first:
-      213: -6911138058876359781
-    second: R3_Wolf_2
+      213: 6541906659802160218
+    second: R3_square_2
   - first:
-      213: 5187703796094722450
-    second: R3_Wolf_3
+      213: -9125825160865146251
+    second: R3_square_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 70
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -135,89 +135,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: R3_Wolf_0
+      name: R3_square_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 59
-        width: 34
-        height: 37
+        x: 236
+        y: 269
+        width: 63
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6e242c4f8a957170800000000000000
-      internalID: 8175610638809443950
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: R3_Wolf_1
-      rect:
-        serializedVersion: 2
-        x: 61
-        y: 59
-        width: 34
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 527d433b46ad66a10800000000000000
-      internalID: 1902448018648782629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: R3_Wolf_2
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 9
-        width: 34
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b9bedfe5d84b610a0800000000000000
-      internalID: -6911138058876359781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: R3_Wolf_3
-      rect:
-        serializedVersion: 2
-        x: 61
-        y: 9
-        width: 34
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 291eb2eed1d6ef740800000000000000
-      internalID: 5187703796094722450
+      spriteID: 72b2a4ccdfdfcb060800000000000000
+      internalID: 6970725589758651175
       vertices: []
       indices: 
       edges: []
@@ -226,7 +160,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 95518071ca056a04c9a1bb569cc56603
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +170,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      R3_Wolf_0: 8175610638809443950
-      R3_Wolf_1: 1902448018648782629
-      R3_Wolf_2: -6911138058876359781
-      R3_Wolf_3: 5187703796094722450
+      R3_square_0: 6970725589758651175
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
