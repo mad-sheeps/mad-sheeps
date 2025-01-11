@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 43afd60d6d069400aaaed458c4beb097
+guid: 6f2de4c5a77cace458ad042c9f6bd743
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7372078117943190210
-    second: R3_Background_0
+      213: 3466830457124787113
+    second: R1_spinning_ground_0
+  - first:
+      213: 8655408203537593930
+    second: R1_spinning_ground_1
+  - first:
+      213: -1735626986314112126
+    second: R1_spinning_ground_2
+  - first:
+      213: -1175542089637057606
+    second: R1_spinning_ground_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: R3_Background_0
+      name: R1_spinning_ground_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1600
-        height: 1920
+        x: 263
+        y: 344
+        width: 41
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +150,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e3dd09bb20e11b990800000000000000
-      internalID: -7372078117943190210
+      spriteID: 9a39d65cee7ac1030800000000000000
+      internalID: 3466830457124787113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R1_spinning_ground_1
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 344
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a463cdd17ef2e1870800000000000000
+      internalID: 8655408203537593930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R1_spinning_ground_2
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 344
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2836a22a370d9e7e0800000000000000
+      internalID: -1735626986314112126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R1_spinning_ground_3
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 140
+        width: 137
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abba9a0a2b2afafe0800000000000000
+      internalID: -1175542089637057606
       vertices: []
       indices: 
       edges: []
@@ -160,8 +235,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      R3_Background_0: -7372078117943190210
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 43afd60d6d069400aaaed458c4beb097
+guid: 03a73c89aa6def841ba68ebfbf16ab03
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7372078117943190210
-    second: R3_Background_0
+      213: 4198203315491841685
+    second: R3_ground_0
+  - first:
+      213: 6346976979953379947
+    second: R3_ground_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: R3_Background_0
+      name: R3_ground_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1600
-        height: 1920
+        x: 98
+        y: 26
+        width: 137
+        height: 299
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e3dd09bb20e11b990800000000000000
-      internalID: -7372078117943190210
+      spriteID: 59622c22ca3034a30800000000000000
+      internalID: 4198203315491841685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R3_ground_1
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 26
+        width: 137
+        height: 299
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6ae3bf7fedf41850800000000000000
+      internalID: 6346976979953379947
       vertices: []
       indices: 
       edges: []
@@ -160,8 +185,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      R3_Background_0: -7372078117943190210
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
