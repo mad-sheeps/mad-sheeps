@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2fecb4b7742644d4fbf74996c7c4e41b
+guid: c097b5ad0d28e1d4091d48acd3dd4334
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6538697343730040162
-    second: R1_seesaw_ground_0
+      213: -1465695683445128745
+    second: R1_shortGround_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: R1_seesaw_ground_0
+      name: R1_shortGround_0
       rect:
         serializedVersion: 2
-        x: 263
-        y: 146
-        width: 170
-        height: 128
+        x: 293
+        y: 179
+        width: 83
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 26db1d2379e1eba50800000000000000
-      internalID: 6538697343730040162
+      spriteID: 7d10e6f9a8dc8abe0800000000000000
+      internalID: -1465695683445128745
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      R1_seesaw_ground_0: 6538697343730040162
+      R1_shortGround_0: -1465695683445128745
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

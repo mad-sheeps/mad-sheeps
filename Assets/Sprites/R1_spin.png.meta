@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1269a58d802fd15408d402bd4aea7511
+guid: d6984b82d2dd7ae4491d87d13206f538
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6629357996177741420
-    second: background-1.png (3)_0
+      213: -3479800039051769397
+    second: R1_spin_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: background-1.png (3)_0
+      name: R1_spin_0
       rect:
         serializedVersion: 2
-        x: 233
-        y: 212
-        width: 149
-        height: 116
+        x: 263
+        y: 344
+        width: 41
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4992eecb60acff3a0800000000000000
-      internalID: -6629357996177741420
+      spriteID: bc9cdee1d4445bfc0800000000000000
+      internalID: -3479800039051769397
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      background-1.png (3)_0: -6629357996177741420
+      background-7.png (2)_0: 5231428717251296863
+      background-7.png (2)_1: -3557436852288310161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
