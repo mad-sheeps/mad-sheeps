@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: e1a4af4e8a32140e78788f607eed640a
+guid: 27c660f5a550949c1832f2dd82d757b5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6404516492088420180
-    second: Basic Sheep_0
-  - first:
-      213: -424282385074898151
-    second: Basic Sheep_1
+      213: 1817963688882187533
+    second: Sunset Background_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Basic Sheep_0
+      name: Sunset Background_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 2
-        width: 29
-        height: 30
+        x: 0
+        y: 0
+        width: 150
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca850fade269e17a0800000000000000
-      internalID: -6404516492088420180
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic Sheep_1
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 3
-        width: 29
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 91bb7213b65ac1af0800000000000000
-      internalID: -424282385074898151
+      spriteID: d0da162d754ba3910800000000000000
+      internalID: 1817963688882187533
       vertices: []
       indices: 
       edges: []
@@ -185,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sunset Background_0: 1817963688882187533
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

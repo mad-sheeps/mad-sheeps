@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 843bac22285114f7fb386976046a64ee
+guid: f859dccae7c0c46dc8714fa15f5bc280
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -458185587419916677
-    second: Wolf_0
+      213: 3410881901689094844
+    second: R2_BlueSheep_0
   - first:
-      213: -5547194825390550217
-    second: Wolf_1
-  - first:
-      213: 6891357095817125983
-    second: Wolf_2
-  - first:
-      213: 2672853027243246175
-    second: Wolf_3
+      213: 7434915784652233521
+    second: R2_BlueSheep_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 17
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -135,89 +129,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wolf_0
+      name: R2_BlueSheep_
       rect:
         serializedVersion: 2
-        x: 11
-        y: 59
-        width: 34
-        height: 37
+        x: 1
+        y: 35
+        width: 29
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b76d1a4c2a234a9f0800000000000000
-      internalID: -458185587419916677
+      spriteID: cb2ccf89403e55f20800000000000000
+      internalID: 3410881901689094844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wolf_1
+      name: R2_BlueSheep_0
       rect:
         serializedVersion: 2
-        x: 61
-        y: 59
-        width: 34
-        height: 36
+        x: 33
+        y: 34
+        width: 29
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73316b452b76403b0800000000000000
-      internalID: -5547194825390550217
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wolf_2
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 9
-        width: 34
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f502c8444c403af50800000000000000
-      internalID: 6891357095817125983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Wolf_3
-      rect:
-        serializedVersion: 2
-        x: 61
-        y: 9
-        width: 34
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5249a9baa1e71520800000000000000
-      internalID: 2672853027243246175
+      spriteID: 13b1427a3802e2760800000000000000
+      internalID: 7434915784652233521
       vertices: []
       indices: 
       edges: []
@@ -226,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d809e87315147416ab3df83290748b57
     internalID: 0
     vertices: []
     indices: 
@@ -235,7 +185,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      R2_BlueSheep_: 3410881901689094844
+      R2_BlueSheep_0: 7434915784652233521
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

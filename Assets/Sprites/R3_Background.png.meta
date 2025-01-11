@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: c811de59876c34decaa6905fdfbedf65
+guid: 43afd60d6d069400aaaed458c4beb097
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7508898839703204411
-    second: Jump Sheep 1_0
-  - first:
-      213: 2375172628699301123
-    second: Jump Sheep 1_1
+      213: -7372078117943190210
+    second: R3_Background_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -129,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump Sheep 1_0
+      name: R3_Background_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 16
-        width: 28
-        height: 26
+        x: 0
+        y: 0
+        width: 1600
+        height: 1920
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,30 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5cdc5250a480bc790800000000000000
-      internalID: -7508898839703204411
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump Sheep 1_1
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 16
-        width: 28
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3054addebee46f020800000000000000
-      internalID: 2375172628699301123
+      spriteID: e3dd09bb20e11b990800000000000000
+      internalID: -7372078117943190210
       vertices: []
       indices: 
       edges: []
@@ -185,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      R3_Background_0: -7372078117943190210
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 202b14847a390460a8ca96a06b5056b8
+guid: 2e68422d07a5a4edf9a4cffcf0679dff
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6857370906419626748
-    second: Sunset Background-Big_0
+      213: 4163216209006283368
+    second: Hill_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 180
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sunset Background-Big_0
+      name: Hill_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1600
-        height: 1920
+        width: 950
+        height: 210
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf28d3ae1864a2f50800000000000000
-      internalID: 6857370906419626748
+      spriteID: 86ac7fc9517b6c930800000000000000
+      internalID: 4163216209006283368
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sunset Background-Big_0: 6857370906419626748
+      Hill_0: 4163216209006283368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

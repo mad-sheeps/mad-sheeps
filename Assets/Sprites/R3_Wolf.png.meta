@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: f0fe1e64955b84e628ccd22c92a303e7
+guid: 0204621b3f5394653a9b92adc456571e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4830890181745544722
-    second: Blue Sheep_0
+      213: 8175610638809443950
+    second: R3_Wolf_0
   - first:
-      213: 6759684316130508940
-    second: Blue Sheep_1
+      213: 1902448018648782629
+    second: R3_Wolf_1
+  - first:
+      213: -6911138058876359781
+    second: R3_Wolf_2
+  - first:
+      213: 5187703796094722450
+    second: R3_Wolf_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -129,13 +135,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Blue Sheep_0
+      name: R3_Wolf_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 35
-        width: 29
-        height: 29
+        x: 11
+        y: 59
+        width: 34
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ee1722099fa35fcb0800000000000000
-      internalID: -4830890181745544722
+      spriteID: e6e242c4f8a957170800000000000000
+      internalID: 8175610638809443950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue Sheep_1
+      name: R3_Wolf_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 34
-        width: 29
-        height: 30
+        x: 61
+        y: 59
+        width: 34
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +172,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c800db832193fcd50800000000000000
-      internalID: 6759684316130508940
+      spriteID: 527d433b46ad66a10800000000000000
+      internalID: 1902448018648782629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R3_Wolf_2
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 9
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9bedfe5d84b610a0800000000000000
+      internalID: -6911138058876359781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R3_Wolf_3
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 9
+        width: 34
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 291eb2eed1d6ef740800000000000000
+      internalID: 5187703796094722450
       vertices: []
       indices: 
       edges: []
@@ -185,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      R3_Wolf_0: 8175610638809443950
+      R3_Wolf_1: 1902448018648782629
+      R3_Wolf_2: -6911138058876359781
+      R3_Wolf_3: 5187703796094722450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

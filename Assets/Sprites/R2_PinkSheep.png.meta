@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 8adca7f6663bebc49a5da1b44ee80eec
+guid: 8ffaffc66dfd44bf99a7e4778306e564
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2925002341216333216
-    second: baechu_0
+      213: -5671422386928663506
+    second: R2_PinkSheep 1_0
+  - first:
+      213: 3031070679191371923
+    second: R2_PinkSheep 1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 120
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: baechu_0
+      name: R2_PinkSheep 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 17
-        height: 18
+        x: 13
+        y: 20
+        width: 191
+        height: 198
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0625d943edd4867d0800000000000000
-      internalID: -2925002341216333216
+      spriteID: e244be7336f0b41b0800000000000000
+      internalID: -5671422386928663506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: R2_PinkSheep 1_1
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 27
+        width: 191
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 390cd4239b6801a20800000000000000
+      internalID: 3031070679191371923
       vertices: []
       indices: 
       edges: []
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      baechu_0: -2925002341216333216
+      R2_PinkSheep 1_0: -5671422386928663506
+      R2_PinkSheep 1_1: 3031070679191371923
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
