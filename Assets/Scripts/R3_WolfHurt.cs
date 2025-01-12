@@ -12,7 +12,7 @@ public class WolfHurt : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Leaf") || collision.gameObject.CompareTag("Stone") || collision.gameObject.CompareTag("Tree"))
+        if (collision.gameObject.CompareTag("Leaf") || collision.gameObject.CompareTag("Rock") || collision.gameObject.CompareTag("Tree"))
         {
             PlayerAnimator.SetBool("hurt", true);
             Invoke("ResetHurtAnimation", 0.36f);
