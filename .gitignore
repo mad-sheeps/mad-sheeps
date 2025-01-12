@@ -22,3 +22,8 @@
 # Plastic SCM 관련 파일 무시
 plastic/
 .plastic
+
+# Unity User Settings
+UserSettings/EditorUserSettings.asset
+UserSettings/Layouts/CurrentMaximizeLayout.dwlt
+UserSettings/Layouts/default-6000.dwlt
