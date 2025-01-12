@@ -21,8 +21,10 @@ public class Mover : MonoBehaviour
         }
         else
         {
-            transform.position += Vector3.right * 4 * Time.deltaTime;
+            transform.position += Vector3.right * 3 * Time.deltaTime;
             transform.position += Vector3.up * 9 * Time.deltaTime;
+
+            transform.Rotate(Vector3.forward, 1200 * Time.deltaTime);
         }
 
         if (isInsideBox && Input.GetKeyDown(KeyCode.Space))
