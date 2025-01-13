@@ -21,8 +21,10 @@ public class Mover : MonoBehaviour
         }
         else
         {
-            transform.position += Vector3.right * 4 * Time.deltaTime;
+            transform.position += Vector3.right * 3 * Time.deltaTime;
             transform.position += Vector3.up * 9 * Time.deltaTime;
+
+            transform.Rotate(Vector3.forward, 1200 * Time.deltaTime);
         }
 
         if (isInsideBox && Input.GetKeyDown(KeyCode.Space))
@@ -39,7 +41,6 @@ public class Mover : MonoBehaviour
     {
         if (other.CompareTag("Box"))
         {
-            Debug.Log("충돌함!");
             isInsideBox = true;
         }
 
@@ -65,22 +66,15 @@ public class Mover : MonoBehaviour
 
         if (myTag == "Rock")
         {
-            Debug.Log("돌 양 애니메이션 실행!");
             SheepAnimator.SetTrigger("RockSheep");
         }
         else if (myTag == "Leaf")
         {
-            Debug.Log("나뭇잎 양 애니메이션 실행!");
             SheepAnimator.SetTrigger("LeafSheep");
         }
         else if (myTag == "Tree")
         {
-            Debug.Log("나무 양 애니메이션 실행!");
             SheepAnimator.SetTrigger("TreeSheep");
-        }
-        else
-        {
-            Debug.LogWarning("무기의 태그가 정의되지 않았습니다!");
         }
     }
 }
