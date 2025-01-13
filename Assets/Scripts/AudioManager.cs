@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     [Header("Settings")]
     public AudioSource audioSource;
+    public float maxFreq = 0f;
     private const int sampleWindow = 1024;
     private bool isMicrophoneReady = false;
 
@@ -80,6 +81,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // Round 2 에서 사용하는 함수
     public float GetPitch()
     {
         if (!isMicrophoneReady || audioSource.clip == null)
@@ -92,7 +94,7 @@ public class AudioManager : MonoBehaviour
         audioSource.GetSpectrumData(spectrumData, 0, FFTWindow.BlackmanHarris);
         //Debug.Log($"Spectrum Data: {string.Join(", ", spectrumData)}");
 
-        float maxFreq = 0f;
+        maxFreq = 0f;
         float maxAmplitude = 0f;
         float amplitudeThreshold = 0.01f; // 최소 진폭 설정 (노이즈 필터링)
 
@@ -105,6 +107,7 @@ public class AudioManager : MonoBehaviour
                 maxFreq = i * (AudioSettings.outputSampleRate / 2f) / spectrumData.Length;
             }
         }
+        //Debug.Log($"Pitch: {maxFreq}, Max Amplitude: {maxAmplitude}");
         // 진폭이 너무 작다면 0으로 반환
         if (maxAmplitude < amplitudeThreshold)
         {
@@ -114,4 +117,18 @@ public class AudioManager : MonoBehaviour
         //Debug.Log($"Get Pitch - maxFreq: {maxFreq}");
         return maxFreq;
     }
+
+    //Round 3 에서 사용하는 함수
+    public bool IsSoundDetected(float threshold = 50f)
+{
+    // 현재 마이크 입력의 주파수와 크기를 확인
+    float pitch = GetPitch();
+    if (pitch > threshold)
+    {
+        Debug.Log($"Sound detected! Pitch: {pitch}");
+        return true;
+    }
+    return false;
+}
+
 }

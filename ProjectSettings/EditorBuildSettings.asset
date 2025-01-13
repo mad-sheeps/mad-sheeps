@@ -12,6 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Round2_Scene.unity
     guid: bde357dba365b46c1aa1c4792f06458e
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4236b9bea5f7f44c0a2f961183403451, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 3db9ade02a342144cb4396f765378d94, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

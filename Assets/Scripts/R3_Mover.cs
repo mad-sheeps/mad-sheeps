@@ -7,10 +7,21 @@ public class Mover : MonoBehaviour
     private bool isInsideBox = false; 
     private bool isMovingRight = false;
     private Animator SheepAnimator;  // 양 애니메이션
+    public AudioManager audioManager;
 
     void Start()
     {
-        SheepAnimator = Object.FindAnyObjectByType<R3_Sheep>()?.GetComponent<Animator>();
+        SheepAnimator = GetComponent<Animator>();
+        // AudioManager가 설정되지 않은 경우 에러 로그
+        if (audioManager == null)
+        {
+            audioManager = FindObjectOfType<AudioManager>();
+            if (audioManager == null)
+            {
+                Debug.LogError("AudioManager not found in the scene!");
+            }
+        }
+
     }
 
     void Update()
@@ -27,13 +38,14 @@ public class Mover : MonoBehaviour
             transform.Rotate(Vector3.forward, 1200 * Time.deltaTime);
         }
 
-        if (isInsideBox && Input.GetKeyDown(KeyCode.Space))
+        // 무기가 상자 안에 있을 때 소리를 감지해 발사
+        if (isInsideBox && audioManager != null && audioManager.IsSoundDetected(50f)) 
         {
-            Debug.Log("스페이스 눌림!");
+            Debug.Log("Sound detected! Triggering action...");
             isMovingRight = true;
             TriggerSheepAnimation();
 
-            transform.position = new Vector2(-1.645f, -1.507f); //위치 이동
+            transform.position = new Vector2(-1.645f, -1.507f); // 위치 이동
         }
     }
 
@@ -41,7 +53,15 @@ public class Mover : MonoBehaviour
     {
         if (other.CompareTag("Box"))
         {
-            isInsideBox = true;
+            // 상자 안에 있는지 확인하기 위해 위치 조건 추가
+            Vector2 weaponPosition = transform.position; // 무기의 현재 위치
+            Collider2D boxCollider = other.GetComponent<Collider2D>(); // Box Collider 가져오기
+
+            if (boxCollider != null && boxCollider.OverlapPoint(weaponPosition))
+            {
+                isInsideBox = true;
+                Debug.Log("Weapon is inside the box!");
+            }
         }
 
         if (other.CompareTag("Wolf"))
@@ -55,7 +75,15 @@ public class Mover : MonoBehaviour
     {
         if (other.CompareTag("Box"))
         {
-            isInsideBox = false;
+            // 위치 조건으로 상자 밖에 나갔는지 확인
+            Vector2 weaponPosition = transform.position; // 무기의 현재 위치
+            Collider2D boxCollider = other.GetComponent<Collider2D>(); // Box Collider 가져오기
+
+            if (boxCollider != null && !boxCollider.OverlapPoint(weaponPosition))
+            {
+                isInsideBox = false;
+                Debug.Log("Weapon exited the box.");
+            }
         }
     }
 
