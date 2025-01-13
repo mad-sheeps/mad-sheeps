@@ -3,8 +3,8 @@ using UnityEngine;
 public class Mover : MonoBehaviour
 {
     [Header("Settings")]
-    public float moveSpeed;
-    public bool isInsideBox = false; 
+    public float moveSpeed=0.001f;
+    private bool isInsideBox = false; 
     private bool isMovingRight = false;
     private Animator SheepAnimator;  // 양 애니메이션
     public AudioManager audioManager;
@@ -28,50 +28,39 @@ public class Mover : MonoBehaviour
     {
         if (!isMovingRight)
         {
-            transform.position += Vector3.down * moveSpeed * Time.deltaTime;
+            transform.position += Vector3.down * moveSpeed * Time.deltaTime * 0.01f;
         }
         else
         {
-            transform.position += Vector3.right * 3 * Time.deltaTime;
-            transform.position += Vector3.up * 9 * Time.deltaTime;
+            Vector3 moveDirection = new Vector3(1, 0, 0).normalized; 
+            transform.position += moveDirection * 3 * Time.deltaTime;
+
+            transform.position += Vector3.up * 3f * Time.deltaTime;
 
             transform.Rotate(Vector3.forward, 1200 * Time.deltaTime);
         }
 
-        // 상자 내부에서만 소리를 감지하여 발사
-        if (isInsideBox && audioManager != null)
+        // 상자 내부 지속 확인
+        CheckInsideBox();
+        
+        // 상자 내부에서만 소리를 감지하여 발사 audioManager.IsSoundDetectedAmplitude(0.05f)
+        //Input.GetKeyDown(KeyCode.Space)
+        if (isInsideBox && audioManager.IsSoundDetectedAmplitude(0.01f))
         {
-            if (audioManager.IsSoundDetected(50f)) // 임계값을 낮춤
-            {
-                Debug.Log("Sound detected and weapon is inside the box! Triggering action...");
-                isMovingRight = true;
-                TriggerSheepAnimation();
+            Debug.Log("Sound detected and weapon is inside the box! Triggering action...");
+            isMovingRight = true;
+            TriggerSheepAnimation();
 
-                transform.position = new Vector2(-1.645f, -1.507f); // 위치 이동
-            }
+            transform.position = new Vector2(-1.645f, -1.507f); // 위치 이동
         }
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Box"))
         {
-        //     // 상자 안에 있는지 확인하기 위해 위치 조건 추가
-        //     Vector2 weaponPosition = transform.position; // 무기의 현재 위치
-        //     Collider2D boxCollider = other.GetComponent<Collider2D>(); // Box Collider 가져오기
-
-        //     if (boxCollider != null && boxCollider.OverlapPoint(weaponPosition))
-        //     {
-        //         isInsideBox = true;
-        //         Debug.Log("Weapon is inside the box!");
-        //     }
-        // }
-
-        // if (other.CompareTag("Wolf"))
-        // {
-        //     Destroy(gameObject);
-        // }
-        isInsideBox = true;
+            isInsideBox = true;
         }
 
         if (other.CompareTag("Wolf"))
@@ -85,19 +74,30 @@ public class Mover : MonoBehaviour
     {
         if (other.CompareTag("Box"))
         {
-        //     // 위치 조건으로 상자 밖에 나갔는지 확인
-        //     Vector2 weaponPosition = transform.position; // 무기의 현재 위치
-        //     Collider2D boxCollider = other.GetComponent<Collider2D>(); // Box Collider 가져오기
-
-        //     if (boxCollider != null && !boxCollider.OverlapPoint(weaponPosition))
-        //     {
-        //         isInsideBox = false;
-        //         Debug.Log("Weapon exited the box.");
-        //     }
-        // }
-        isInsideBox = false;
+            isInsideBox = false;
         }
     }
+
+    void CheckInsideBox()
+    {
+        Collider2D boxCollider = GameObject.FindWithTag("Box").GetComponent<Collider2D>();
+        if (boxCollider != null)
+        {
+            // 현재 무기의 위치가 상자 Collider 안에 있는지 확인
+            isInsideBox = boxCollider.OverlapPoint(transform.position);
+
+            if (isInsideBox)
+            {
+                Debug.Log("Weapon is inside the box.");
+            }
+            else
+            {
+                Debug.Log("Weapon exited the box.");
+            }
+        }
+    }
+
+
 
     //양 애니메이션
     void TriggerSheepAnimation()

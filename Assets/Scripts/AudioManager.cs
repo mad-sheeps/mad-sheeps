@@ -119,16 +119,39 @@ public class AudioManager : MonoBehaviour
     }
 
     //Round 3 에서 사용하는 함수
-    public bool IsSoundDetected(float threshold = 50f)
-{
-    // 현재 마이크 입력의 주파수와 크기를 확인
-    float pitch = GetPitch();
-    if (pitch > threshold)
+    public bool IsSoundDetectedAmplitude(float amplitudeThreshold = 0.001f)
     {
-        Debug.Log($"Sound detected! Pitch: {pitch}");
-        return true;
+        if (!isMicrophoneReady || audioSource.clip == null)
+        {
+            Debug.LogWarning("Microphone not ready or AudioSource.clip is null.");
+            return false;
+        }
+
+        float[] data = new float[sampleWindow];
+        audioSource.GetOutputData(data, 0); // 마이크 입력 데이터 가져오기
+
+        float totalAmplitude = 0f;
+
+        // 입력 데이터의 총 진폭 계산
+        for (int i = 0; i < data.Length; i++)
+        {
+            totalAmplitude += Mathf.Abs(data[i]);
+        }
+
+        // 평균 진폭 계산
+        float averageAmplitude = totalAmplitude / sampleWindow;
+
+        Debug.Log($"Average Amplitude: {averageAmplitude}");
+        
+        // 평균 진폭이 임계값을 초과하면 소리 감지
+        if (averageAmplitude > amplitudeThreshold)
+        {
+            Debug.Log("Sound detected based on amplitude!");
+            return true;
+        }
+
+        return false;
     }
-    return false;
-}
+
 
 }
