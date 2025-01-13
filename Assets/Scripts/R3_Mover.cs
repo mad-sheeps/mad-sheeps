@@ -4,7 +4,7 @@ public class Mover : MonoBehaviour
 {
     [Header("Settings")]
     public float moveSpeed;
-    private bool isInsideBox = false; 
+    public bool isInsideBox = false; 
     private bool isMovingRight = false;
     private Animator SheepAnimator;  // 양 애니메이션
     public AudioManager audioManager;
@@ -38,14 +38,17 @@ public class Mover : MonoBehaviour
             transform.Rotate(Vector3.forward, 1200 * Time.deltaTime);
         }
 
-        // 무기가 상자 안에 있을 때 소리를 감지해 발사
-        if (isInsideBox && audioManager != null && audioManager.IsSoundDetected(50f)) 
+        // 상자 내부에서만 소리를 감지하여 발사
+        if (isInsideBox && audioManager != null)
         {
-            Debug.Log("Sound detected! Triggering action...");
-            isMovingRight = true;
-            TriggerSheepAnimation();
+            if (audioManager.IsSoundDetected(50f)) // 임계값을 낮춤
+            {
+                Debug.Log("Sound detected and weapon is inside the box! Triggering action...");
+                isMovingRight = true;
+                TriggerSheepAnimation();
 
-            transform.position = new Vector2(-1.645f, -1.507f); // 위치 이동
+                transform.position = new Vector2(-1.645f, -1.507f); // 위치 이동
+            }
         }
     }
 
@@ -53,7 +56,22 @@ public class Mover : MonoBehaviour
     {
         if (other.CompareTag("Box"))
         {
-            isInsideBox = true;
+        //     // 상자 안에 있는지 확인하기 위해 위치 조건 추가
+        //     Vector2 weaponPosition = transform.position; // 무기의 현재 위치
+        //     Collider2D boxCollider = other.GetComponent<Collider2D>(); // Box Collider 가져오기
+
+        //     if (boxCollider != null && boxCollider.OverlapPoint(weaponPosition))
+        //     {
+        //         isInsideBox = true;
+        //         Debug.Log("Weapon is inside the box!");
+        //     }
+        // }
+
+        // if (other.CompareTag("Wolf"))
+        // {
+        //     Destroy(gameObject);
+        // }
+        isInsideBox = true;
         }
 
         if (other.CompareTag("Wolf"))
@@ -67,7 +85,17 @@ public class Mover : MonoBehaviour
     {
         if (other.CompareTag("Box"))
         {
-            isInsideBox = false;
+        //     // 위치 조건으로 상자 밖에 나갔는지 확인
+        //     Vector2 weaponPosition = transform.position; // 무기의 현재 위치
+        //     Collider2D boxCollider = other.GetComponent<Collider2D>(); // Box Collider 가져오기
+
+        //     if (boxCollider != null && !boxCollider.OverlapPoint(weaponPosition))
+        //     {
+        //         isInsideBox = false;
+        //         Debug.Log("Weapon exited the box.");
+        //     }
+        // }
+        isInsideBox = false;
         }
     }
 

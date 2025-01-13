@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     [Header("Settings")]
     public AudioSource audioSource;
     public float maxFreq = 0f;
-    private const int sampleWindow = 1024;
+    private const int sampleWindow = 256;   //딜레이 줄이기 위해 값 낮춤.
     private bool isMicrophoneReady = false;
 
     void Start(){
@@ -107,7 +107,7 @@ public class AudioManager : MonoBehaviour
                 maxFreq = i * (AudioSettings.outputSampleRate / 2f) / spectrumData.Length;
             }
         }
-        //Debug.Log($"Pitch: {maxFreq}, Max Amplitude: {maxAmplitude}");
+        Debug.Log($"Pitch: {maxFreq}, Max Amplitude: {maxAmplitude}");
         // 진폭이 너무 작다면 0으로 반환
         if (maxAmplitude < amplitudeThreshold)
         {
