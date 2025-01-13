@@ -3,36 +3,37 @@ using UnityEngine;
 public class R1_SheepControll : MonoBehaviour
 {
     [Header("Settings")]
-    public float moveSpeed; // 이동 속도
     public float jumpForce; // 점프 힘
-    private bool isGrounded = true; // 땅에 닿아있는 상태
+    public bool isGrounded = true; // 땅에 닿아있는 상태
 
     [Header("References")]
     public Rigidbody2D rb; // Rigidbody2D 참조
+    public R1_BackgroundScroll backgroundScroll; // 배경 스크롤 스크립트 참조
 
     void Update()
     {
-        // 오른쪽 이동
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
-        }
-
-        // 점프
+        // 스페이스바를 눌렀을 때 점프
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            isGrounded = false;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // 위쪽으로 점프
+            isGrounded = false; // 공중에 있음
+            backgroundScroll.StartScroll(); // 배경 이동 시작
+        }
+
+        // 공중에 있을 때 배경 이동 업데이트
+        if (!isGrounded)
+        {
+            backgroundScroll.UpdateScroll(rb.linearVelocity.y); // 속도 기반으로 배경 이동
         }
     }
 
-    // 땅에 닿았는지 확인
-    // TODO: 땅에 안닿으면(바다에 빠지면) 생길 이벤트 필요
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Ground")
+        // 땅과 충돌했을 때만 isGrounded를 true로 변경
+        if (collision.gameObject.name == "GroundSpawner" || collision.gameObject.name == "firstGround")
         {
-            isGrounded = true;
+            isGrounded = true; // 땅에 닿음
+            backgroundScroll.StopScroll(); // 배경 이동 멈춤
         }
     }
 }

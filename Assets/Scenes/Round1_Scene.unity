@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &244422079 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5773781711822971811, guid: c39d9d32682a34e4bb5d062756b31dcc, type: 3}
+  m_PrefabInstance: {fileID: 675464351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &658459481
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5773781711822971811, guid: c39d9d32682a34e4bb5d062756b31dcc, type: 3}
       propertyPath: m_Name
-      value: Ground
+      value: firstGround
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -420,7 +425,7 @@ Transform:
   m_GameObject: {fileID: 846069800}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.64, y: -1.48, z: 0}
+  m_LocalPosition: {x: -1.07, y: -1.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -487,7 +492,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -511,9 +516,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80676ef64654e045a17bc43bae7eb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  jumpForce: 7
+  jumpForce: 12
+  isGrounded: 1
   rb: {fileID: 846069805}
+  backgroundScroll: {fileID: 1907874072}
 --- !u!1 &916323792
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,10 +564,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc42975821cd5c46887d9b1f1f66672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDistance: 15
+  spawnDistance: 5
   destroyDistance: 20
   groundPrefabs:
   - {fileID: 5773781711822971811, guid: c39d9d32682a34e4bb5d062756b31dcc, type: 3}
+  - {fileID: 5773781711822971811, guid: f4b069a40703d274080117c69e25c1f4, type: 3}
+  - {fileID: 5773781711822971811, guid: 1e0aae8b56610ba48b7f00392ee121b6, type: 3}
+  - {fileID: 5773781711822971811, guid: d4839e7930824ca46877f056141fa2ed, type: 3}
+  - {fileID: 5773781711822971811, guid: 6ce973d0b26e5234886a973434140cac, type: 3}
   player: {fileID: 846069803}
 --- !u!1 &1907874067
 GameObject:
@@ -685,12 +695,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7b6a582866aea47a0a24e9be441e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeedMultiplier: 0.05
   groundObjects:
-  - {fileID: 0}
+  - {fileID: 244422079}
+  - {fileID: 916323792}
   waterObject: {fileID: 2082517113}
   skyObject: {fileID: 1907874067}
-  player: {fileID: 846069803}
-  moveSpeed: 5
 --- !u!1 &2082517113
 GameObject:
   m_ObjectHideFlags: 0

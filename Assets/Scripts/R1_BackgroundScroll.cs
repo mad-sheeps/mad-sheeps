@@ -3,37 +3,45 @@ using UnityEngine;
 public class R1_BackgroundScroll : MonoBehaviour
 {
     [Header("Settings")]
-    public float moveSpeed = 5f; // 배경 이동 속도
+    public float scrollSpeedMultiplier = 0.5f; // 점프 속도에 따른 배경 이동 속도 비율
 
     [Header("References")]
-    public GameObject[] groundObjects;
-    public GameObject waterObject;
-    public GameObject skyObject;
-    public Transform player; // 양
+    public GameObject[] groundObjects; // 땅 오브젝트 배열
+    public GameObject waterObject; // 물 오브젝트
+    public GameObject skyObject; // 하늘 오브젝트
 
-    private Vector3 lastPlayerPosition; // 양의 이전 위치
-
-    void Start()
-    {
-        // 초기 양 위치
-        lastPlayerPosition = player.position;
-    }
+    private bool isMoving = false; // 배경 이동 중인지 여부
 
     void Update()
     {
-        // 양의 현재 위치와 이전 위치 차이 계산
-        Vector3 playerDelta = player.position - lastPlayerPosition;
-        Vector3 backgroundMovement = new Vector3(-playerDelta.x, 0, 0);
+        if (isMoving)
+        {
+            // 배경 이동
+            foreach (GameObject ground in groundObjects)
+            {
+                ground.transform.Translate(new Vector3(-scrollSpeedMultiplier * Time.deltaTime, 0, 0), Space.World);
+            }
+            waterObject.transform.Translate(new Vector3(-scrollSpeedMultiplier * Time.deltaTime, 0, 0), Space.World);
+            skyObject.transform.Translate(new Vector3(-scrollSpeedMultiplier * Time.deltaTime, 0, 0), Space.World);
+        }
+    }
 
-        // // 배경 이동 적용
-        // foreach (GameObject ground in groundObjects)
-        // {
-        //     ground.transform.Translate(backgroundMovement, Space.World);
-        // }
+    public void StartScroll()
+    {
+        isMoving = true; // 배경 이동 시작
+    }
 
-        waterObject.transform.Translate(backgroundMovement, Space.World);
-        skyObject.transform.Translate(backgroundMovement, Space.World);
+    public void UpdateScroll(float verticalVelocity)
+    {
+        // 점프 속도에 따라 배경 이동 속도 조정
+        if (verticalVelocity > 0 || verticalVelocity < 0) // 점프 중일 때만
+        {
+            scrollSpeedMultiplier = Mathf.Abs(verticalVelocity) * 0.2f; // 속도에 비례해 배경 이동
+        }
+    }
 
-        lastPlayerPosition = player.position;
+    public void StopScroll()
+    {
+        isMoving = false; // 배경 이동 멈춤
     }
 }

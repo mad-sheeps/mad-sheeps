@@ -27,18 +27,10 @@ public class R1_GroundSpawner : MonoBehaviour
         }
     }
 
-    // void SpawnInitialGround()
-    // {
-    //     for (int i = 0; i < 5; i++)
-    //     {
-    //         SpawnNextGround();
-    //     }
-    // }
-
     void SpawnNextGround()
     {
         GameObject ground = Instantiate(groundPrefabs[Random.Range(0, groundPrefabs.Length)], transform);
-        ground.transform.position = lastSpawnPosition + new Vector3(Random.Range(3f, 5f), 0, 0);
+        ground.transform.position = lastSpawnPosition + new Vector3(Random.Range(3f, 4f), 0, 0);
         lastSpawnPosition = ground.transform.position;
     }
 }
