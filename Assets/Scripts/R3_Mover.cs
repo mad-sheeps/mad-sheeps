@@ -12,8 +12,8 @@ public class Mover : MonoBehaviour
     void Start()
     {
         SheepAnimator = GetComponent<Animator>();
-        // AudioManager가 설정되지 않은 경우 에러 로그
-        if (audioManager == null)
+        // AudioManager가 설정되지 않은 경우 
+       if (audioManager == null)
         {
             audioManager = FindObjectOfType<AudioManager>();
             if (audioManager == null)
@@ -53,15 +53,7 @@ public class Mover : MonoBehaviour
     {
         if (other.CompareTag("Box"))
         {
-            // 상자 안에 있는지 확인하기 위해 위치 조건 추가
-            Vector2 weaponPosition = transform.position; // 무기의 현재 위치
-            Collider2D boxCollider = other.GetComponent<Collider2D>(); // Box Collider 가져오기
-
-            if (boxCollider != null && boxCollider.OverlapPoint(weaponPosition))
-            {
-                isInsideBox = true;
-                Debug.Log("Weapon is inside the box!");
-            }
+            isInsideBox = true;
         }
 
         if (other.CompareTag("Wolf"))
@@ -75,15 +67,7 @@ public class Mover : MonoBehaviour
     {
         if (other.CompareTag("Box"))
         {
-            // 위치 조건으로 상자 밖에 나갔는지 확인
-            Vector2 weaponPosition = transform.position; // 무기의 현재 위치
-            Collider2D boxCollider = other.GetComponent<Collider2D>(); // Box Collider 가져오기
-
-            if (boxCollider != null && !boxCollider.OverlapPoint(weaponPosition))
-            {
-                isInsideBox = false;
-                Debug.Log("Weapon exited the box.");
-            }
+            isInsideBox = false;
         }
     }
 
