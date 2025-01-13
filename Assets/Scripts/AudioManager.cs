@@ -90,20 +90,28 @@ public class AudioManager : MonoBehaviour
 
         float[] spectrumData = new float[sampleWindow];
         audioSource.GetSpectrumData(spectrumData, 0, FFTWindow.BlackmanHarris);
-        Debug.Log($"Spectrum Data: {string.Join(", ", spectrumData)}");
+        //Debug.Log($"Spectrum Data: {string.Join(", ", spectrumData)}");
 
         float maxFreq = 0f;
         float maxAmplitude = 0f;
+        float amplitudeThreshold = 0.01f; // 최소 진폭 설정 (노이즈 필터링)
+
 
         for (int i = 0; i < spectrumData.Length; i++)
         {
-            if (spectrumData[i] > maxAmplitude && spectrumData[i] > 0.01f)
+            if (spectrumData[i] > maxAmplitude && spectrumData[i] > amplitudeThreshold)
             {
                 maxAmplitude = spectrumData[i];
                 maxFreq = i * (AudioSettings.outputSampleRate / 2f) / spectrumData.Length;
             }
         }
-        Debug.Log($"Get Pitch - maxFreq: {maxFreq}");
+        // 진폭이 너무 작다면 0으로 반환
+        if (maxAmplitude < amplitudeThreshold)
+        {
+            //Debug.Log("No significant pitch detected. Likely noise.");
+            return 0f;
+        }
+        //Debug.Log($"Get Pitch - maxFreq: {maxFreq}");
         return maxFreq;
     }
 }

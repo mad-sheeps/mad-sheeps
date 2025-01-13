@@ -1,53 +1,53 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class R2_Sheeps : MonoBehaviour
 {
     [Header("Settings")]
     public float previousPitch = 0f;
-    public float pitch;
+    public float pitch = 0f;
     private int sheepCount = 0;
+
+    [Header("Cooldown Settings")]
+    public float cooldownTime = 1f; // 양이 떨어지는 최소 간격 (초)
+    private float lastDropTime = 0f;  // 마지막으로 양이 떨어진 시간 기록
 
     [Header("References")]
     public AudioManager audioManager; // AudioManager 연결
     public GameObject[] gameObjects;
 
+
     void Start()
     {
-        if (audioManager != null)
-        {
+        if (audioManager != null) {
             audioManager.InitializeMicrophone();
             Debug.Log("AudioManager initialized successfully.");
-        }
-        else
-        {
+        } else {
             Debug.LogError("AudioManager reference is missing!");
         }
     }
 
     void Update()
     {
-        if (audioManager != null)
-        {
-            // Pitch 값을 가져오기 전에 마이크 초기화 여부 확인
-            if (audioManager.audioSource != null && audioManager.audioSource.isPlaying)
-            {
-                pitch = audioManager.GetPitch();
-                Debug.Log($"R2_Sheeps - Current Pitch: {pitch:F2}");
+        if (audioManager != null && audioManager.audioSource != null ) {
+            pitch = audioManager.GetPitch();
 
-                if (pitch > previousPitch + 5) 
-                {
-                    DropRandomSheep();
-                    Debug.Log($"R2_Sheeps - Detected Pitch: {pitch:F2}");
+            // Pitch가 유효한 범위에 있는지 확인
+            if (pitch >0f) {
+                // 처음 pitch를 초기화
+                if (previousPitch == 0f){
                     previousPitch = pitch;
+                    Debug.Log($"Initial Pitch Set: {previousPitch:F2}");
+                }
+                // 현재 pitch가 이전 pitch보다 높고, 쿨타임이 지났을 때
+                else if (pitch > previousPitch && Time.time - lastDropTime >= cooldownTime) {
+                    DropRandomSheep();
+                    Debug.Log($"Sheep dropped for pitch: {pitch:F2}");
+                    lastDropTime = Time.time; // 마지막 양 드롭 시간 갱신
+                    previousPitch = pitch;   // 기준 pitch 업데이트
                 }
             }
-            else
-            {
-                Debug.LogWarning("AudioManager is not ready or audioSource is not playing.");
-            }
-        }
-        else
-        {
+        } else {
             Debug.LogError("AudioManager reference is null.");
         }
     }
