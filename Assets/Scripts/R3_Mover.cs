@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Mover : MonoBehaviour
 {
@@ -12,12 +11,13 @@ public class Mover : MonoBehaviour
     public R3_ProgressBar progressBarController;
     private Animator SheepAnimator;  // 양 애니메이션
     public AudioManager audioManager;
+    private int score;  //progress bar 깎일 점수
 
     void Start()
     {
         SheepAnimator = Object.FindAnyObjectByType<R3_Sheep>()?.GetComponent<Animator>();
         // AudioManager가 설정되지 않은 경우 
-       if (audioManager == null)
+        if (audioManager == null)
         {
             audioManager = FindObjectOfType<AudioManager>();
             if (audioManager == null)
@@ -37,7 +37,6 @@ public class Mover : MonoBehaviour
         else
         {
             transform.position += Vector3.right * 3 * Time.deltaTime;
-
             transform.position += Vector3.up * 4.5f * Time.deltaTime;
 
             transform.Rotate(Vector3.forward, 1200 * Time.deltaTime);
@@ -52,8 +51,9 @@ public class Mover : MonoBehaviour
         {
             //Debug.Log("Sound detected and weapon is inside the box! Triggering action...");
             isMovingRight = true;
-            progressBarController.IncreaseOverlayWidth(20f);
             TriggerSheepAnimation();
+            Debug.Log("score" + score);
+            progressBarController.IncreaseOverlayWidth(5.0f * score);
 
             transform.position = new Vector2(-1.645f, -1.507f); // 위치 이동
         }
@@ -89,15 +89,6 @@ public class Mover : MonoBehaviour
         {
             // 현재 무기의 위치가 상자 Collider 안에 있는지 확인
             isInsideBox = boxCollider.OverlapPoint(transform.position);
-
-            if (isInsideBox)
-            {
-                //Debug.Log("Weapon is inside the box.");
-            }
-            else
-            {
-                //Debug.Log("Weapon exited the box.");
-            }
         }
     }
 
@@ -111,14 +102,17 @@ public class Mover : MonoBehaviour
 
         if (myTag == "Rock")
         {
+            score = 7;
             SheepAnimator.SetTrigger("RockSheep");
         }
         else if (myTag == "Leaf")
         {
+            score = 3;
             SheepAnimator.SetTrigger("LeafSheep");
         }
         else if (myTag == "Tree")
         {
+            score = 5;
             SheepAnimator.SetTrigger("TreeSheep");
         }
     }
