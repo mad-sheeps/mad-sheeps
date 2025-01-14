@@ -7,7 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     [Header("Settings")]
     public AudioSource audioSource;
-    private const int sampleWindow = 1024;
+    public float maxFreq = 0f;
+    private const int sampleWindow = 256;   //딜레이 줄이기 위해 값 낮춤.
     private bool isMicrophoneReady = false;
 
     void Start(){
@@ -80,6 +81,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // Round 2 에서 사용하는 함수
     public float GetPitch()
     {
         if (!isMicrophoneReady || audioSource.clip == null)
@@ -90,20 +92,63 @@ public class AudioManager : MonoBehaviour
 
         float[] spectrumData = new float[sampleWindow];
         audioSource.GetSpectrumData(spectrumData, 0, FFTWindow.BlackmanHarris);
-        Debug.Log($"Spectrum Data: {string.Join(", ", spectrumData)}");
+        //Debug.Log($"Spectrum Data: {string.Join(", ", spectrumData)}");
 
-        float maxFreq = 0f;
+        maxFreq = 0f;
         float maxAmplitude = 0f;
+        float amplitudeThreshold = 0.03f; // 최소 진폭 설정 (노이즈 필터링)
+
 
         for (int i = 0; i < spectrumData.Length; i++)
         {
-            if (spectrumData[i] > maxAmplitude && spectrumData[i] > 0.01f)
+            if (spectrumData[i] > maxAmplitude && spectrumData[i] > amplitudeThreshold)
             {
                 maxAmplitude = spectrumData[i];
                 maxFreq = i * (AudioSettings.outputSampleRate / 2f) / spectrumData.Length;
             }
         }
-        Debug.Log($"Get Pitch - maxFreq: {maxFreq}");
+        // 진폭이 너무 작다면 0으로 반환
+        if (maxAmplitude < amplitudeThreshold)
+        {
+            return 0f;
+        }
         return maxFreq;
     }
+
+    //Round 3 에서 사용하는 함수
+    public bool IsSoundDetectedAmplitude(float amplitudeThreshold = 0.001f)
+    {
+        if (!isMicrophoneReady || audioSource.clip == null)
+        {
+            Debug.LogWarning("Microphone not ready or AudioSource.clip is null.");
+            return false;
+        }
+
+        float[] data = new float[sampleWindow];
+        audioSource.GetOutputData(data, 0); // 마이크 입력 데이터 가져오기
+
+        float totalAmplitude = 0f;
+
+        // 입력 데이터의 총 진폭 계산
+        for (int i = 0; i < data.Length; i++)
+        {
+            totalAmplitude += Mathf.Abs(data[i]);
+        }
+
+        // 평균 진폭 계산
+        float averageAmplitude = totalAmplitude / sampleWindow;
+
+        Debug.Log($"Average Amplitude: {averageAmplitude}");
+        
+        // 평균 진폭이 임계값을 초과하면 소리 감지
+        if (averageAmplitude > amplitudeThreshold)
+        {
+            Debug.Log("Sound detected based on amplitude!");
+            return true;
+        }
+
+        return false;
+    }
+
+
 }

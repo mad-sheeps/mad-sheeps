@@ -11,6 +11,7 @@ TagManager:
   - Rock
   - Tree
   - spin
+  - Sheep
   layers:
   - Default
   - TransparentFX
