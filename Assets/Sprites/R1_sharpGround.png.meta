@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fe708b8311db5764aafbae9fee6e31b9
+guid: 8be84431c01776640a8704e15c4a5470
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -285955033116054440
-    second: R1_sharpGround_0
+      213: -2001272039382146489
+    second: background-3.png_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,23 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: R1_sharpGround_0
+      name: background-3.png_0
       rect:
         serializedVersion: 2
         x: 275
         y: 188
         width: 161
-        height: 152
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85ce1659965180cf0800000000000000
-      internalID: -285955033116054440
+      spriteID: 742a4b1fead0a34e0800000000000000
+      internalID: -2001272039382146489
       vertices: []
       indices: 
       edges: []
@@ -151,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3424090c910311349970067153dc2fa3
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      R1_sharpGround_0: -285955033116054440
+      background-3.png_0: -2001272039382146489
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

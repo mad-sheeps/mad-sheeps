@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 7c2adfaedc243483d840ae354d1c9592
+guid: 2d1b4912daa99b44bb8df2b58baade28
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4665762161052399679
-    second: R1_JumpSheep_0
-  - first:
-      213: 2238603147349975217
-    second: R1_JumpSheep_1
+      213: -959217806934451828
+    second: background-5.png_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 50
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,113 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: R1_JumpSheep_0
+      name: background-5.png_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 17
-        width: 28
-        height: 25
+        x: 263
+        y: 260
+        width: 170
+        height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline:
-      - - {x: 7, y: -11.5}
-        - {x: 8, y: -10.5}
-        - {x: 8, y: -7.5}
-        - {x: 9, y: -7.5}
-        - {x: 12, y: -3.5}
-        - {x: 13, y: -2.5}
-        - {x: 13, y: 0.5}
-        - {x: 12, y: 3.5}
-        - {x: 11, y: 4.5}
-        - {x: 11, y: 7.5}
-        - {x: 8, y: 10.5}
-        - {x: 2, y: 11.5}
-        - {x: -4, y: 11.5}
-        - {x: -9, y: 8.5}
-        - {x: -12, y: 4.5}
-        - {x: -13, y: -0.5}
-        - {x: -11, y: -6.5}
-        - {x: -8, y: -7.5}
-        - {x: -8, y: -11.5}
-        - {x: -7, y: -12.5}
-        - {x: -5, y: -12.5}
-        - {x: -3, y: -11.5}
-        - {x: -2, y: -10.5}
-        - {x: -2, y: -8.5}
-        - {x: 1, y: -8.5}
-        - {x: 1, y: -9.5}
-        - {x: 2, y: -9.5}
-        - {x: 2, y: -11.5}
-        - {x: 2, y: -11.5}
-        - {x: 3, y: -12.5}
-        - {x: 5, y: -12.5}
+      outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1c74308e802ef3fb0800000000000000
-      internalID: -4665762161052399679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: R1_JumpSheep_1
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 17
-        width: 28
-        height: 25
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline:
-      - - {x: 4, y: -12.5}
-        - {x: 8, y: -12.5}
-        - {x: 10, y: -11.5}
-        - {x: 10, y: -9.5}
-        - {x: 9, y: -9.5}
-        - {x: 9, y: -7.5}
-        - {x: 10, y: -5.5}
-        - {x: 12, y: -3.5}
-        - {x: 13, y: -2.5}
-        - {x: 13, y: 0.5}
-        - {x: 12, y: 3.5}
-        - {x: 11, y: 4.5}
-        - {x: 11, y: 7.5}
-        - {x: 7, y: 10.5}
-        - {x: 5, y: 10.5}
-        - {x: 2, y: 11.5}
-        - {x: -1, y: 11.5}
-        - {x: -7, y: 9.5}
-        - {x: -10, y: 7.5}
-        - {x: -12, y: 3.5}
-        - {x: -13, y: -0.5}
-        - {x: -13, y: -2.5}
-        - {x: -12, y: -4.5}
-        - {x: -11, y: -6.5}
-        - {x: -10, y: -7.5}
-        - {x: -8, y: -7.5}
-        - {x: -10, y: -9.5}
-        - {x: -10, y: -11.5}
-        - {x: -8, y: -12.5}
-        - {x: -5, y: -12.5}
-        - {x: -2, y: -9.5}
-        - {x: -2, y: -8.5}
-        - {x: 1, y: -8.5}
-        - {x: 1, y: -9.5}
-        - {x: 3, y: -9.5}
-        - {x: 3, y: -10.5}
-        - {x: 5, y: -12.5}
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b0eddea3bd111f10800000000000000
-      internalID: 2238603147349975217
+      spriteID: c89517b9c7c20b2f0800000000000000
+      internalID: -959217806934451828
       vertices: []
       indices: 
       edges: []
@@ -244,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: eb5b44b096037a9449d9fd26118e36cd
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -254,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      R1_JumpSheep_0: -4665762161052399679
-      R1_JumpSheep_1: 2238603147349975217
+      background-5.png_0: -959217806934451828
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

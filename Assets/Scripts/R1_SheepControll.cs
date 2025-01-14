@@ -35,5 +35,17 @@ public class R1_SheepControll : MonoBehaviour
             isGrounded = true; // 땅에 닿음
             backgroundScroll.StopScroll(); // 배경 이동 멈춤
         }
+
+        //sharp랑 충돌
+        if (collision.gameObject.name == "sharp")
+        {
+            Debug.Log("sharp 충돌! 게임 종료");
+        }
+
+        //spin이랑 충돌
+        if (collision.gameObject.tag == "spin")
+        {
+            Debug.Log("spin 충돌! 게임 종료");
+        }
     }
 }
