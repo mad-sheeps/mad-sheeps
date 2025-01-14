@@ -22,10 +22,10 @@ public class R2_Sheeps : MonoBehaviour
     public TextMeshProUGUI sheepCountText;
     public TextMeshProUGUI gameOverText; // 게임 오버 텍스트
 
-    [Header("Game Over Settings")]
-    public Transform ground;
-
-
+    [Header("Heart")]
+    public GameObject[] hearts; 
+    public Sprite heartOnSprite;
+    public Sprite heartOffSprite;
     void Start()
     {
         if (audioManager != null) {
@@ -36,7 +36,7 @@ public class R2_Sheeps : MonoBehaviour
         }
 
         UpdateSheepCountText();
-        // 게임 오버 텍스트 초기화
+        UpdateHearts();
         if (gameOverText != null)
         {
             gameOverText.gameObject.SetActive(false);
@@ -59,12 +59,12 @@ public class R2_Sheeps : MonoBehaviour
                 // 현재 pitch가 이전 pitch보다 높고, 쿨타임이 지났을 때
                 else if (pitch > previousPitch && Time.time - lastDropTime >= cooldownTime) {
                     DropRandomSheep();
-                    //Debug.Log($"Sheep dropped for pitch: {pitch:F2}");
                     lastDropTime = Time.time; // 마지막 양 드롭 시간 갱신
                     previousPitch = pitch;   // 기준 pitch 업데이트
                 } else if(pitch < previousPitch && Time.time - lastDropTime >= cooldownTime){
                     Debug.Log($"pitchlife: {pitchlife:F2}");
                     pitchlife -= 1;
+                    UpdateHearts(); 
                     DropRandomSheep();
                     lastDropTime = Time.time; // 마지막 양 드롭 시간 갱신
                     previousPitch = pitch;   // 기준 pitch 업데이트
@@ -77,6 +77,22 @@ public class R2_Sheeps : MonoBehaviour
         CheckGameOver();
         if(pitchlife == 0){
             GameOver();
+        }
+    }
+
+    void UpdateHearts()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            SpriteRenderer heartRenderer = hearts[i].GetComponent<SpriteRenderer>();
+            if (i < pitchlife)
+            {
+                heartRenderer.sprite = heartOnSprite;
+            }
+            else
+            {
+                heartRenderer.sprite = heartOffSprite;
+            }
         }
     }
 
