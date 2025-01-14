@@ -6,6 +6,8 @@ public class Mover : MonoBehaviour
     public float moveSpeed=0.001f;
     private bool isInsideBox = false; 
     private bool isMovingRight = false;
+
+    [Header("References")]
     private Animator SheepAnimator;  // 양 애니메이션
     public AudioManager audioManager;
 
