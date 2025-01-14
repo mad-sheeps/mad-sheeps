@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mover : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Mover : MonoBehaviour
     private bool isMovingRight = false;
 
     [Header("References")]
+    public R3_ProgressBar progressBarController;
     private Animator SheepAnimator;  // 양 애니메이션
     public AudioManager audioManager;
 
@@ -23,7 +25,7 @@ public class Mover : MonoBehaviour
                 Debug.LogError("AudioManager not found in the scene!");
             }
         }
-
+        progressBarController = Object.FindAnyObjectByType<R3_ProgressBar>();
     }
 
     void Update()
@@ -36,7 +38,7 @@ public class Mover : MonoBehaviour
         {
             transform.position += Vector3.right * 3 * Time.deltaTime;
 
-            transform.position += Vector3.up * 4 * Time.deltaTime;
+            transform.position += Vector3.up * 4.5f * Time.deltaTime;
 
             transform.Rotate(Vector3.forward, 1200 * Time.deltaTime);
         }
@@ -50,6 +52,7 @@ public class Mover : MonoBehaviour
         {
             //Debug.Log("Sound detected and weapon is inside the box! Triggering action...");
             isMovingRight = true;
+            progressBarController.IncreaseOverlayWidth(20f);
             TriggerSheepAnimation();
 
             transform.position = new Vector2(-1.645f, -1.507f); // 위치 이동
