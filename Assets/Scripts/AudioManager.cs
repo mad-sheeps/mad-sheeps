@@ -81,6 +81,41 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // Round 1 에서 사용하는 함수
+    public float GetJumpAmplitude(float minAmplitude = 0.01f)
+    {
+        if (!isMicrophoneReady || audioSource.clip == null)
+        {
+            Debug.LogWarning("Microphone not ready or AudioSource.clip is null.");
+            return 0f;
+        }
+
+        float[] data = new float[sampleWindow];
+        audioSource.GetOutputData(data, 0); // 마이크 입력 데이터 가져오기
+
+        float totalAmplitude = 0f;
+
+        // 입력 데이터의 총 진폭 계산
+        for (int i = 0; i < data.Length; i++)
+        {
+            totalAmplitude += Mathf.Abs(data[i]);
+        }
+
+        // 평균 진폭 계산
+        float averageAmplitude = totalAmplitude / sampleWindow;
+
+        // 최소 임계값 이하의 소리는 무시
+        if (averageAmplitude < minAmplitude)
+        {
+            return 0f;
+        }
+
+        Debug.Log($"Detected Jump Amplitude: {averageAmplitude}");
+        return averageAmplitude;
+    }
+
+
+
     // Round 2 에서 사용하는 함수
     public float GetPitch()
     {
@@ -149,6 +184,7 @@ public class AudioManager : MonoBehaviour
 
         return false;
     }
+
 
 
 }
