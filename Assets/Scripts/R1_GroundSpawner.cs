@@ -8,8 +8,9 @@ public class R1_GroundSpawner : MonoBehaviour
     public float spawnInterval = 2f;
     [Header("References")]
     public GameObject[] groundPrefabs; // 땅 프리팹 배열
-    private float nextSpawnX= 3f;
     public Transform player; // 플레이어
+    public Transform spawnPoint;
+    public R1_BackgroundScroll backgroundScroll;
 
     //private Vector3 lastSpawnPosition;
 
@@ -17,7 +18,7 @@ public class R1_GroundSpawner : MonoBehaviour
     {
         //lastSpawnPosition = new Vector3(0, -5.02f, 0);
         //nextSpawnX = Camera.main.transform.position.x + spawnDistance;
-        SpawnNextGround();
+        
         StartCoroutine(SpawnGroundsPeriodically());
     }
 
@@ -37,9 +38,15 @@ public class R1_GroundSpawner : MonoBehaviour
 
     void SpawnNextGround()
     {
-        GameObject ground = Instantiate(groundPrefabs[Random.Range(0, groundPrefabs.Length)], transform);
-        ground.transform.position = new Vector3(nextSpawnX, -5.02f, 0);
-        nextSpawnX += Random.Range(3f, 4f); 
+        GameObject ground = Instantiate(
+            groundPrefabs[Random.Range(0, groundPrefabs.Length)],
+            spawnPoint.position,
+            Quaternion.identity,
+            transform
+        );
+
+        R1_ScrollableObject scrollable = ground.AddComponent<R1_ScrollableObject>();
+        scrollable.SetScrollSpeed(backgroundScroll);
     }
     void DestroyOldGround()
     {

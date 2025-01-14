@@ -12,6 +12,7 @@ TagManager:
   - Tree
   - spin
   - Sheep
+  - Ground
   layers:
   - Default
   - TransparentFX

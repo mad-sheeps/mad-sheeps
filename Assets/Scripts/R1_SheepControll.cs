@@ -48,11 +48,11 @@ public class R1_SheepControll : MonoBehaviour
             amplitude = audioManager.GetJumpAmplitude();
 
             // 소리 크기가 특정 임계값 이상일 때 점프 amplitude > 0.1f
-            if (isGrounded && amplitude > 0.005f)
+            if (isGrounded && amplitude > 0.05f)
             {
                 float jumpForce = amplitude * jumpForceMultiplier; // 소리 크기에 비례하여 점프 힘 계산
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // 위쪽으로 점프
-                //isGrounded = false; // 공중 상태로 변경
+                isGrounded = false; // 공중 상태로 변경
                 backgroundScroll.StartScroll(); // 배경 이동 시작
                 Debug.Log($"Jump triggered with amplitude: {amplitude}, force: {jumpForce}");
             }

@@ -9,7 +9,7 @@ public class R1_BackgroundScroll : MonoBehaviour
     public float currentScrollSpeed; // 현재 배경 이동 속도
 
     [Header("References")]
-    public GameObject[] groundObjects; // 땅 오브젝트 배열
+    //public GameObject[] groundObjects; // 땅 오브젝트 배열
     public Material waterMaterial; // 물 오브젝트
     public Material skyMaterial; // 하늘 오브젝트
 
@@ -22,10 +22,10 @@ public class R1_BackgroundScroll : MonoBehaviour
         if (isMoving)
         {
             // 배경 이동
-            foreach (GameObject ground in groundObjects)
-            {
-                ground.transform.Translate(new Vector3(-currentScrollSpeed * Time.deltaTime, 0, 0), Space.World);
-            }
+            // foreach (GameObject ground in groundObjects)
+            // {
+            //     ground.transform.Translate(new Vector3(-currentScrollSpeed * Time.deltaTime, 0, 0), Space.World);
+            // }
             
             skyOffset.x += currentScrollSpeed * Time.deltaTime * 0.1f;
             skyMaterial.mainTextureOffset = skyOffset;
@@ -53,5 +53,9 @@ public class R1_BackgroundScroll : MonoBehaviour
     public void StopScroll()
     {
         isMoving = false; // 배경 이동 멈춤
+    }
+    public float GetCurrentScrollSpeed()
+    {
+        return isMoving ? currentScrollSpeed : 0f; // 현재 이동 중일 경우 속도를 반환
     }
 }
