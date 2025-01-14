@@ -96,7 +96,7 @@ public class AudioManager : MonoBehaviour
 
         maxFreq = 0f;
         float maxAmplitude = 0f;
-        float amplitudeThreshold = 0.01f; // 최소 진폭 설정 (노이즈 필터링)
+        float amplitudeThreshold = 0.03f; // 최소 진폭 설정 (노이즈 필터링)
 
 
         for (int i = 0; i < spectrumData.Length; i++)
@@ -107,14 +107,11 @@ public class AudioManager : MonoBehaviour
                 maxFreq = i * (AudioSettings.outputSampleRate / 2f) / spectrumData.Length;
             }
         }
-        Debug.Log($"Pitch: {maxFreq}, Max Amplitude: {maxAmplitude}");
         // 진폭이 너무 작다면 0으로 반환
         if (maxAmplitude < amplitudeThreshold)
         {
-            //Debug.Log("No significant pitch detected. Likely noise.");
             return 0f;
         }
-        //Debug.Log($"Get Pitch - maxFreq: {maxFreq}");
         return maxFreq;
     }
 

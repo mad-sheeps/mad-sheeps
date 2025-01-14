@@ -10,6 +10,7 @@ TagManager:
   - Leaf
   - Rock
   - Tree
+  - Sheep
   layers:
   - Default
   - TransparentFX

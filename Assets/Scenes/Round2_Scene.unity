@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 634556528}
   m_Layer: 0
   m_Name: Sheep Spawner
-  m_TagString: Untagged
+  m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,12 +237,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousPitch: 0
   pitch: 0
+  sheepCount: 0
+  pitchlife: 3
   cooldownTime: 1
   audioManager: {fileID: 796574149}
   gameObjects:
   - {fileID: 6474413597806667977, guid: fe91caf5c2c4545c59720f5aeba490cf, type: 3}
   - {fileID: 6474413597806667977, guid: e3ae90300fb70450e83f48d0d19d0569, type: 3}
   - {fileID: 5401949022010760636, guid: 8b0fb7dd9925444ba8ec73a87ac4495f, type: 3}
+  sheepCountText: {fileID: 1289558378}
+  ground: {fileID: 1656596913}
 --- !u!4 &634556529
 Transform:
   m_ObjectHideFlags: 0
