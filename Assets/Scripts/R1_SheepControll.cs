@@ -1,30 +1,68 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using TMPro;
 public class R1_SheepControll : MonoBehaviour
 {
     [Header("Settings")]
-    public float jumpForce; // 점프 힘
+    public float jumpForceMultiplier = 10000f; // 점프 힘 증가
     public bool isGrounded = true; // 땅에 닿아있는 상태
+    public float amplitude;
 
     [Header("References")]
     public Rigidbody2D rb; // Rigidbody2D 참조
-    public R1_BackgroundScroll backgroundScroll; // 배경 스크롤 스크립트 참조
+    public R1_BackgroundScroll backgroundScroll;
+    public AudioManager audioManager;
+    public TextMeshProUGUI nextStageText;
+    public Camera mainCamera; // 메인 카메라 참조
+
+    private bool isGameOver = false;
+
+    void Start()
+    {
+        // AudioManager가 연결되지 않았다면 자동으로 찾기
+        if (audioManager == null)
+        {
+            audioManager = FindObjectOfType<AudioManager>();
+            if (audioManager == null)
+            {
+                Debug.LogError("AudioManager not found in the scene!");
+            }
+        }
+        if (nextStageText != null)
+        {
+            nextStageText.gameObject.SetActive(false);
+        }
+        // 메인 카메라 자동 설정
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+    }
 
     void Update()
     {
-        // 스페이스바를 눌렀을 때 점프
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (isGameOver) return;
+        if (audioManager != null)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // 위쪽으로 점프
-            isGrounded = false; // 공중에 있음
-            backgroundScroll.StartScroll(); // 배경 이동 시작
-        }
+            // 소리 크기를 가져옴
+            amplitude = audioManager.GetJumpAmplitude();
 
-        // 공중에 있을 때 배경 이동 업데이트
+            // 소리 크기가 특정 임계값 이상일 때 점프 amplitude > 0.1f
+            if (isGrounded && amplitude > 0.005f)
+            {
+                float jumpForce = amplitude * jumpForceMultiplier; // 소리 크기에 비례하여 점프 힘 계산
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // 위쪽으로 점프
+                //isGrounded = false; // 공중 상태로 변경
+                backgroundScroll.StartScroll(); // 배경 이동 시작
+                Debug.Log($"Jump triggered with amplitude: {amplitude}, force: {jumpForce}");
+            }
+        }
+        //공중에 있을 때 배경 이동 업데이트
         if (!isGrounded)
         {
             backgroundScroll.UpdateScroll(rb.linearVelocity.y); // 속도 기반으로 배경 이동
         }
+        CheckOutOfBounds();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,16 +74,42 @@ public class R1_SheepControll : MonoBehaviour
             backgroundScroll.StopScroll(); // 배경 이동 멈춤
         }
 
-        //sharp랑 충돌
-        if (collision.gameObject.name == "sharp")
+        //장애물 충돌
+        if (collision.gameObject.name == "sharp" || collision.gameObject.tag == "spin")
         {
-            Debug.Log("sharp 충돌! 게임 종료");
+            Debug.Log("장애물 충돌! 다음 스테이지로 이동...");
+            StartNextStage();
+        }
+    }
+    private void CheckOutOfBounds()
+    {
+        // 양의 월드 좌표를 카메라 뷰포트 좌표로 변환
+        Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
+
+        // 뷰포트 좌표가 카메라 밖으로 벗어났는지 체크
+        if (viewportPos.y < 0 || viewportPos.y > 1 || viewportPos.x < 0 || viewportPos.x > 1)
+        {
+            Debug.Log("양이 카메라 밖으로 벗어났습니다!");
+            StartNextStage(); // 게임 오버 처리
+        }
+    }
+
+    void StartNextStage()
+    {
+        isGameOver = true;
+        audioManager.audioSource.Stop();
+         backgroundScroll.StopScroll();
+        if (nextStageText != null)
+        {
+            nextStageText.gameObject.SetActive(true);
         }
 
-        //spin이랑 충돌
-        if (collision.gameObject.tag == "spin")
-        {
-            Debug.Log("spin 충돌! 게임 종료");
-        }
+        StartCoroutine(TransitionToNextScene());
+    }
+
+    System.Collections.IEnumerator TransitionToNextScene()
+    {
+        yield return new WaitForSeconds(4f); // 2초 대기
+        SceneManager.LoadScene("Round2_Scene"); // Scene2로 전환
     }
 }

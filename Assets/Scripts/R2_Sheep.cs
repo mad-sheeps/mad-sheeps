@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic;
+using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -20,11 +20,12 @@ public class R2_Sheeps : MonoBehaviour
     public AudioManager audioManager; // AudioManager 연결
     public GameObject[] gameObjects;
     public TextMeshProUGUI sheepCountText;
+    public TextMeshProUGUI gameOverText; // 게임 오버 텍스트
 
-    [Header("Game Over Settings")]
-    public Transform ground;
-
-
+    [Header("Heart")]
+    public GameObject[] hearts; 
+    public Sprite heartOnSprite;
+    public Sprite heartOffSprite;
     void Start()
     {
         if (audioManager != null) {
@@ -35,6 +36,11 @@ public class R2_Sheeps : MonoBehaviour
         }
 
         UpdateSheepCountText();
+        UpdateHearts();
+        if (gameOverText != null)
+        {
+            gameOverText.gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -53,12 +59,12 @@ public class R2_Sheeps : MonoBehaviour
                 // 현재 pitch가 이전 pitch보다 높고, 쿨타임이 지났을 때
                 else if (pitch > previousPitch && Time.time - lastDropTime >= cooldownTime) {
                     DropRandomSheep();
-                    //Debug.Log($"Sheep dropped for pitch: {pitch:F2}");
                     lastDropTime = Time.time; // 마지막 양 드롭 시간 갱신
                     previousPitch = pitch;   // 기준 pitch 업데이트
                 } else if(pitch < previousPitch && Time.time - lastDropTime >= cooldownTime){
                     Debug.Log($"pitchlife: {pitchlife:F2}");
                     pitchlife -= 1;
+                    UpdateHearts(); 
                     DropRandomSheep();
                     lastDropTime = Time.time; // 마지막 양 드롭 시간 갱신
                     previousPitch = pitch;   // 기준 pitch 업데이트
@@ -71,6 +77,22 @@ public class R2_Sheeps : MonoBehaviour
         CheckGameOver();
         if(pitchlife == 0){
             GameOver();
+        }
+    }
+
+    void UpdateHearts()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            SpriteRenderer heartRenderer = hearts[i].GetComponent<SpriteRenderer>();
+            if (i < pitchlife)
+            {
+                heartRenderer.sprite = heartOnSprite;
+            }
+            else
+            {
+                heartRenderer.sprite = heartOffSprite;
+            }
         }
     }
 
@@ -88,11 +110,11 @@ public class R2_Sheeps : MonoBehaviour
             float spawnXPosition = 0f;
             if(sheepCount==0){
                 spawnXPosition = 0f;
-            } else if (pitchDelta>=200f){
+            } else if (pitchDelta>=100f){
                 spawnXPosition = 0f;
-            } else if (pitchDelta>=100){
+            } else if (pitchDelta>=50){
                 spawnXPosition = 0.4f;
-            } else if (pitchDelta>= 50f){
+            } else if (pitchDelta>= 30f){
                 spawnXPosition = 0.6f;
             } else if (pitchlife != 3){
                 spawnXPosition = -0.4f;
@@ -145,8 +167,22 @@ public class R2_Sheeps : MonoBehaviour
 
     void GameOver()
     {
-        // Round3_Scene으로 전환
-        Debug.Log("Transitioning to Game Over scene...");
+        Debug.Log("Game Over!");
+        audioManager.audioSource.Stop();
+
+        // 게임 오버 텍스트 표시
+        if (gameOverText != null)
+        {
+            gameOverText.gameObject.SetActive(true);
+        }
+
+        // 일정 시간 후 씬 전환
+        StartCoroutine(GameOverTransition());
+    }
+
+    IEnumerator GameOverTransition()
+    {
+        yield return new WaitForSeconds(4f); // 2초 대기
         SceneManager.LoadScene("Round3_Scene");
     }
 }
