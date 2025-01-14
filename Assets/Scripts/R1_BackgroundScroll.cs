@@ -10,8 +10,11 @@ public class R1_BackgroundScroll : MonoBehaviour
 
     [Header("References")]
     public GameObject[] groundObjects; // 땅 오브젝트 배열
-    public GameObject waterObject; // 물 오브젝트
-    public GameObject skyObject; // 하늘 오브젝트
+    public Material waterMaterial; // 물 오브젝트
+    public Material skyMaterial; // 하늘 오브젝트
+
+    private Vector2 skyOffset;
+    private Vector2 waterOffset;
 
 
     void Update()
@@ -23,8 +26,12 @@ public class R1_BackgroundScroll : MonoBehaviour
             {
                 ground.transform.Translate(new Vector3(-currentScrollSpeed * Time.deltaTime, 0, 0), Space.World);
             }
-            waterObject.transform.Translate(new Vector3(-currentScrollSpeed * Time.deltaTime, 0, 0), Space.World);
-            skyObject.transform.Translate(new Vector3(-currentScrollSpeed * Time.deltaTime, 0, 0), Space.World);
+            
+            skyOffset.x += currentScrollSpeed * Time.deltaTime * 0.1f;
+            skyMaterial.mainTextureOffset = skyOffset;
+
+            waterOffset.x += currentScrollSpeed * Time.deltaTime * 0.1f;
+            waterMaterial.mainTextureOffset = skyOffset;
         }
     }
 
