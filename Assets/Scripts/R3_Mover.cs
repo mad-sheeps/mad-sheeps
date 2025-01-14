@@ -11,7 +11,7 @@ public class Mover : MonoBehaviour
 
     void Start()
     {
-        SheepAnimator = GetComponent<Animator>();
+        SheepAnimator = Object.FindAnyObjectByType<R3_Sheep>()?.GetComponent<Animator>();
         // AudioManager가 설정되지 않은 경우 
        if (audioManager == null)
         {
@@ -32,10 +32,9 @@ public class Mover : MonoBehaviour
         }
         else
         {
-            Vector3 moveDirection = new Vector3(1, 0, 0).normalized; 
-            transform.position += moveDirection * 3 * Time.deltaTime;
+            transform.position += Vector3.right * 3 * Time.deltaTime;
 
-            transform.position += Vector3.up * 3f * Time.deltaTime;
+            transform.position += Vector3.up * 4 * Time.deltaTime;
 
             transform.Rotate(Vector3.forward, 1200 * Time.deltaTime);
         }
@@ -43,11 +42,11 @@ public class Mover : MonoBehaviour
         // 상자 내부 지속 확인
         CheckInsideBox();
         
-        // 상자 내부에서만 소리를 감지하여 발사 audioManager.IsSoundDetectedAmplitude(0.05f)
+        // 상자 내부에서만 소리를 감지하여 발사 audioManager.IsSoundDetectedAmplitude(0.01f)
         //Input.GetKeyDown(KeyCode.Space)
-        if (isInsideBox && audioManager.IsSoundDetectedAmplitude(0.01f))
+        if (isInsideBox && Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Sound detected and weapon is inside the box! Triggering action...");
+            //Debug.Log("Sound detected and weapon is inside the box! Triggering action...");
             isMovingRight = true;
             TriggerSheepAnimation();
 
@@ -88,11 +87,11 @@ public class Mover : MonoBehaviour
 
             if (isInsideBox)
             {
-                Debug.Log("Weapon is inside the box.");
+                //Debug.Log("Weapon is inside the box.");
             }
             else
             {
-                Debug.Log("Weapon exited the box.");
+                //Debug.Log("Weapon exited the box.");
             }
         }
     }
@@ -103,6 +102,7 @@ public class Mover : MonoBehaviour
     void TriggerSheepAnimation()
     {
         string myTag = gameObject.tag;
+        Debug.Log("gameobject: "+ myTag);
 
         if (myTag == "Rock")
         {
