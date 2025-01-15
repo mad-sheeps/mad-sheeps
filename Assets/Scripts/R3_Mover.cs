@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public class R3_Mover : MonoBehaviour
 {
     [Header("Settings")]
     public float moveSpeed=0.001f;
@@ -12,6 +12,8 @@ public class Mover : MonoBehaviour
     private Animator SheepAnimator;  // 양 애니메이션
     public AudioManager audioManager;
     private int score;  //progress bar 깎일 점수
+
+    public int miss = 0;
 
     void Start()
     {
@@ -79,6 +81,23 @@ public class Mover : MonoBehaviour
         if (other.CompareTag("Box"))
         {
             isInsideBox = false;
+            string myTag = gameObject.tag;
+            Debug.Log("gameobject: "+ myTag);
+
+            if (myTag == "Rock")
+            {
+                miss += 3;
+            }
+            else if (myTag == "Leaf")
+            {
+                miss += 7;
+                SheepAnimator.SetTrigger("LeafSheep");
+            }
+            else if (myTag == "Tree")
+            {
+                miss += 5;
+                SheepAnimator.SetTrigger("TreeSheep");
+            }
         }
     }
 

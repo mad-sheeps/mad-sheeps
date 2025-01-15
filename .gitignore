@@ -22,3 +22,6 @@
 # Plastic SCM 관련 파일 무시
 plastic/
 .plastic
+
+# 설정파일
+default-6000.dwlt
