@@ -3,50 +3,50 @@ using UnityEngine;
 public class R1_GroundSpawner : MonoBehaviour
 {
     [Header("Settings")]
-    public float spawnDistance = 15f; // 땅 생성 거리
+    public float groundSpawnInterval = 7f; // 땅 간격 (가로 길이)
     public float destroyDistance = 20f; // 땅 제거 거리
-    public float spawnInterval = 2f;
+    //public float spawnInterval = 2f;
     [Header("References")]
     public GameObject[] groundPrefabs; // 땅 프리팹 배열
+    private float nextSpawnX= 1.55f;
     public Transform player; // 플레이어
-    public Transform spawnPoint;
-    public R1_BackgroundScroll backgroundScroll;
 
     //private Vector3 lastSpawnPosition;
 
     void Start()
     {
-        //lastSpawnPosition = new Vector3(0, -5.02f, 0);
-        //nextSpawnX = Camera.main.transform.position.x + spawnDistance;
-        
-        StartCoroutine(SpawnGroundsPeriodically());
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        // 초기 땅 5개 생성
+        for (int i = 0; i < 5; i++)
+        {
+            SpawnNextGround();
+        }
     }
 
     void Update()
     {
+        // 땅 생성 조건 확인 (플레이어 위치 기준 앞으로 일정 거리 유지)
+        while (nextSpawnX < player.position.x + groundSpawnInterval * 5f)
+        {
+            SpawnNextGround();
+        }
         DestroyOldGround();
     }
 
-    private System.Collections.IEnumerator SpawnGroundsPeriodically()
-    {
-        while (true)
-        {
-            SpawnNextGround(); // 땅 생성
-            yield return new WaitForSeconds(spawnInterval); // 지정된 시간만큼 대기
-        }
-    }
+    // private System.Collections.IEnumerator SpawnGroundsPeriodically()
+    // {
+    //     while (true)
+    //     {
+    //         SpawnNextGround(); // 땅 생성
+    //         yield return new WaitForSeconds(spawnInterval); // 지정된 시간만큼 대기
+    //     }
+    // }
 
     void SpawnNextGround()
     {
-        GameObject ground = Instantiate(
-            groundPrefabs[Random.Range(0, groundPrefabs.Length)],
-            spawnPoint.position,
-            Quaternion.identity,
-            transform
-        );
-
-        R1_ScrollableObject scrollable = ground.AddComponent<R1_ScrollableObject>();
-        scrollable.SetScrollSpeed(backgroundScroll);
+        GameObject ground = Instantiate(groundPrefabs[Random.Range(0, groundPrefabs.Length)], transform);
+        ground.transform.position = new Vector3(nextSpawnX, -5.02f, 0);
+        nextSpawnX += groundSpawnInterval;
     }
     void DestroyOldGround()
     {
