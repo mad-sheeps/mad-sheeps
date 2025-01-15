@@ -5,9 +5,9 @@ public class SheepSpawner : MonoBehaviour
     [Header("Settings")]
     public GameObject[] sheepPrefabs; // 양 프리팹 배열
     public Transform spawnPoint; // 양 생성 위치
-    public float spawnInterval = 2f; // 양 생성 간격
+    public float spawnInterval = 0.5f; // 양 생성 간격
     public float sheepSpeed = 2f; // 양 이동 속도
-    public float jumpForce = 5f; // 양 점프 힘
+    public float jumpForce = 3f; // 양 점프 힘
 
     private float nextSpawnTime = 0f;
 
