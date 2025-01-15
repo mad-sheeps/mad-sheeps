@@ -26,6 +26,11 @@ public class R2_Sheeps : MonoBehaviour
     public GameObject[] hearts; 
     public Sprite heartOnSprite;
     public Sprite heartOffSprite;
+
+    [Header("Sound")]
+    public AudioClip collisionSound; // 충돌 효과음
+    private AudioSource audioSource;
+
     void Start()
     {
         if (audioManager != null) {
@@ -41,6 +46,9 @@ public class R2_Sheeps : MonoBehaviour
         {
             gameOverText.gameObject.SetActive(false);
         }
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
     void Update()
@@ -135,6 +143,8 @@ public class R2_Sheeps : MonoBehaviour
                     cameraController.target = newSheep.transform;
                 }
             }
+
+            PlayCollisionSound();
         }
     }
 
@@ -190,4 +200,31 @@ public class R2_Sheeps : MonoBehaviour
         yield return new WaitForSeconds(4f); // 2초 대기
         SceneManager.LoadScene("Round3_Scene");
     }
+
+    void PlayCollisionSound()
+    {
+        // AudioClip이 설정되어 있으면 코루틴 호출
+        if (collisionSound != null)
+        {
+            StartCoroutine(PlaySoundWithDelay(0.6f)); // 0.5초 딜레이 후 재생
+        }
+    }
+
+    IEnumerator PlaySoundWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // 0.5초 대기
+        audioSource.PlayOneShot(collisionSound);
+    }
+
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 충돌한 오브젝트가 sheep 태그를 가지고 있는지 확인
+        if (collision.gameObject.CompareTag("sheep")) // 태그 대소문자 확인
+        {
+            Debug.Log("효과음 재생!!!!");
+            PlayCollisionSound();
+        }
+    }
+
 }
