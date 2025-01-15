@@ -757,6 +757,7 @@ MonoBehaviour:
   audioManager: {fileID: 1522744577}
   nextStageText: {fileID: 1560980723}
   mainCamera: {fileID: 0}
+  sheepTransform: {fileID: 0}
 --- !u!1 &916323792
 GameObject:
   m_ObjectHideFlags: 0
