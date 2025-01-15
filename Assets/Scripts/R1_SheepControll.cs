@@ -74,7 +74,7 @@ public class R1_SheepControll : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // 땅과 충돌했을 때만 isGrounded를 true로 변경
-        if (collision.gameObject.name == "GroundSpawner" || collision.gameObject.name == "firstGround")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.name == "firstGround")
         {
             isGrounded = true; // 땅에 닿음
             backgroundScroll.StopScroll(); // 배경 이동 멈춤
@@ -126,7 +126,7 @@ public class R1_SheepControll : MonoBehaviour
     {
         isGameOver = true;
         audioManager.audioSource.Stop();
-         backgroundScroll.StopScroll();
+        backgroundScroll.StopScroll();
         if (nextStageText != null)
         {
             nextStageText.gameObject.SetActive(true);
@@ -138,6 +138,6 @@ public class R1_SheepControll : MonoBehaviour
     System.Collections.IEnumerator TransitionToNextScene()
     {
         yield return new WaitForSeconds(4f); // 2초 대기
-        SceneManager.LoadScene("Round2_Scene"); // Scene2로 전환
+        //SceneManager.LoadScene("Round2_Scene"); // Scene2로 전환
     }
 }
