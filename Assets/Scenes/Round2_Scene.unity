@@ -340,6 +340,7 @@ MonoBehaviour:
   - {fileID: 244662557}
   heartOnSprite: {fileID: 1036904540479378310, guid: 9bedbf3a995d84c1bae41acc1d54644f, type: 3}
   heartOffSprite: {fileID: -2015757478077823462, guid: 3260a890d7203448aa86b0969e1f69d3, type: 3}
+  collisionSound: {fileID: 8300000, guid: c1be798e43973744c882f95dca53de63, type: 3}
 --- !u!4 &634556529
 Transform:
   m_ObjectHideFlags: 0
@@ -1107,8 +1108,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC591 0 \uB9C8\uB9AC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 842b1ec8ee5f44741bdf9d1582660794, type: 2}
-  m_sharedMaterial: {fileID: -2174778445356942043, guid: 842b1ec8ee5f44741bdf9d1582660794, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
