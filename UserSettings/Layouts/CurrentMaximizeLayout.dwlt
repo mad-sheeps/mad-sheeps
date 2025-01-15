@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 79387
+  controlID: 81015
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 79388
+  controlID: 81016
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 79389
+  controlID: 81017
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -244,9 +244,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 08d1fdff
-      m_LastClickedID: -143096
-      m_ExpandedIDs: 3acffdff3edafdffb8dafdff3ef3fdff9af3fdff2afdfdff1a0ffefffa1efeff7626feff8228feffe428feff2436feffb236feff003efeff9e47feffc651feffae72feff4a7cfeffae7efefff07efeff768ffeffd6f1feff52fcfeffa6fdfeff7c00ffff8e00ffff9c00ffffb600ffffd800ffffec02ffff824affff74afffffb2b5ffffd4b9ffff56dfffffb6f1ffff0efbffff1eb300008cb70000a0b7000004bb00002abb00004ccc0000c8e6000042f3000080f6000084f9000044fb0000ae000100360501009a0801000e0b0100
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 2aadfdff78adfdff9aadfdfffab0fdff46b1fdff12b5fdff94b5fdff3acffdff3edafdffb8dafdff3ef3fdff9af3fdff2afdfdff1a0ffefffa1efeff7626feff8228feffe428feff2436feffb236feff003efeff9e47feffc651feffae72feff4a7cfeffae7efefff07efeff768ffeffd6f1feff52fcfeffa6fdfeff7c00ffff8e00ffff9c00ffffb600ffffd800ffffec02ffff824affff74afffffb2b5ffffd4b9ffff56dfffffb6f1ffff0efbffff1eb300008cb70000a0b7000004bb00002abb00004ccc0000c8e6000042f3000080f6000084f9000044fb0000ae000100360501009a0801000e0b0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -263,7 +263,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 5}
+        m_ClientGUIView: {fileID: 0}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1091,9 +1091,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: ede05facee3b3074f83bce995298a2ed, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 419624780b657e9489298fe4be80e68a, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 2132656706008898355, guid: ede05facee3b3074f83bce995298a2ed, type: 2}
+  - m_Target: {fileID: -8981387786202099569, guid: 419624780b657e9489298fe4be80e68a, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1180,7 +1180,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Fonts
+    - Assets/Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1190,15 +1190,15 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Fonts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/yeonwoo/git/madcamp_week3/mad-sheeps
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 36b60000
-    m_LastClickedID: 46646
+    scrollPos: {x: 0, y: 125.00061}
+    m_SelectedIDs: 40b60000
+    m_LastClickedID: 46656
     m_ExpandedIDs: 000000004eb4000050b4000046b6000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1254,8 +1254,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 08d1fdff
-    m_LastClickedInstanceID: -143096
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000c6b1000094b400003a720000dad3000000b50000eab40000deb400007cb500009eb40000e4b4000038b70000a2ca000000000000
     m_RenameOverlay:
@@ -1274,7 +1274,7 @@ MonoBehaviour:
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 0}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1341,8 +1341,8 @@ MonoBehaviour:
     y: 0
     width: 421
     height: 835
-  m_MinSize: {x: 276, y: 76}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
