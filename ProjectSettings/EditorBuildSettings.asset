@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Round3_Scene.unity
     guid: 5fccbdd7c1cc04627b258372ed207dd1
+  - enabled: 1
+    path: Assets/Scenes/Score_Scene.unity
+    guid: d6fe0369c087847c399392c6de46ad77
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4236b9bea5f7f44c0a2f961183403451, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 3db9ade02a342144cb4396f765378d94, type: 2}

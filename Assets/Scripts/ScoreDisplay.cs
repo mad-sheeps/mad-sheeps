@@ -15,8 +15,8 @@ public class ScoreDisplay : MonoBehaviour
         int r3Score = PlayerPrefs.GetInt("Round3", 0); // 기본값 0
 
         // 점수를 UI에 표시
-        R1_Score_Text.text = $"Round 1: {r1Score}";
-        R2_Score_Text.text = $"Round 2: {r2Score}";
-        R3_Score_Text.text = $"Round 3: {r3Score}";
+        R1_Score_Text.text = $"{r1Score}";
+        R2_Score_Text.text = $"{r2Score}";
+        R3_Score_Text.text = $"{r3Score}";
     }
 }

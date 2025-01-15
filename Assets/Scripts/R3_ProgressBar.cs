@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class R3_ProgressBar : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class R3_ProgressBar : MonoBehaviour
     public float maxWidth = 214.83f; // 프로그래스 바의 최대 길이 (빨간 배경의 총 길이)
     private float currentOverlayWidth = 0f; // 흰색 오버레이의 현재 길이
     public Vector2 jumpForce = new Vector2(-10f, 10f);
+    public bool isGameOver = false; // 게임 종료 상태
+
 
     [Header("Time")]
     private float startTime; // 게임 시작 시간
@@ -34,6 +37,7 @@ public class R3_ProgressBar : MonoBehaviour
     // 흰색 오버레이 값 설정
     public void SetOverlayWidth(float progress)
     {
+        if (isGameOver) return;
         // 프로그레스 값을 0~1로 제한
         float clampedProgress = Mathf.Clamp01(progress);
         currentOverlayWidth = maxWidth * clampedProgress; // 길이를 비율로 계산
@@ -43,13 +47,14 @@ public class R3_ProgressBar : MonoBehaviour
         {
             int miss = moveScript.miss;
             playTime = Time.time - startTime;   //총 시간
-            int score = Mathf.RoundToInt((100 - miss) / playTime);
+            int score = Mathf.RoundToInt((100 - miss) / playTime * 50);
             PlayerPrefs.SetInt("Round3", score);
             PlayerPrefs.Save();
 
             int round3 = PlayerPrefs.GetInt("Round3");
             Debug.Log("round3 total score : " + round3);
             MoveWolf();
+            //Invoke("LoadScoreScene", 1f); // 1.5초 뒤에 씬 전환
         }
     }
 
@@ -71,22 +76,25 @@ public class R3_ProgressBar : MonoBehaviour
         }
     }
 
-    private void MoveWolf()
+    public void MoveWolf()
     {
         if (wolf != null)
-        {
-            // 원하는 위치로 이동
+        {   //늑대 날아감
             wolfRigidbody.AddForce(jumpForce, ForceMode2D.Impulse); 
         }
 
         Destroy(gameObject);
-
-        // Hierarchy에 있는 특정 ProgressBar 오브젝트를 Destroy
         GameObject otherProgressBar = GameObject.Find("progress_bar");
         if (otherProgressBar != null)
         {
             Destroy(otherProgressBar);
         }
+    }
+
+    private void LoadScoreScene()
+    {
+        Debug.Log("Scene change");
+        SceneManager.LoadScene("Score_Scene"); // Score_Scene으로 전환
     }
 
     // 현재 프로그레스 값을 가져오기

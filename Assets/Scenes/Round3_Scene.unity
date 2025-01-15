@@ -295,9 +295,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlayRectTransform: {fileID: 227359243}
-  wolf: {fileID: 0}
+  wolf: {fileID: 653884081}
+  moveScript: {fileID: 756075590}
   maxWidth: 214.83
   jumpForce: {x: -2.5, y: 2.5}
+  isGameOver: 0
 --- !u!1 &359993987
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,6 +697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerAnimator: {fileID: 653884077}
+  progressBar: {fileID: 227359246}
 --- !u!50 &653884082
 Rigidbody2D:
   serializedVersion: 5
@@ -772,6 +775,7 @@ MonoBehaviour:
   - {fileID: 7345359116245481931, guid: e6d2a8780dea08043b7865c92a7216cf, type: 3}
   - {fileID: 7345359116245481931, guid: f010a9075d14d364bbdc9634226e04e3, type: 3}
   - {fileID: 7345359116245481931, guid: 90dbeb02dad21524482d362c485dd819, type: 3}
+  progressBar: {fileID: 227359246}
 --- !u!1 &658459481
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +945,7 @@ MonoBehaviour:
   moveSpeed: 0
   progressBarController: {fileID: 0}
   audioManager: {fileID: 1460089775}
+  miss: 0
 --- !u!4 &756075591
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ public class R3_WolfHurt : MonoBehaviour
     [Header("References")]
     public Animator PlayerAnimator;
     private Rigidbody2D rb;
+    public R3_ProgressBar progressBar;
 
     [Header("Settings")]
     private bool isGrounded = true; // 늑대가 땅에 있는지 여부
