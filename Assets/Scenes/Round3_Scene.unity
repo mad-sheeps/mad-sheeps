@@ -945,6 +945,7 @@ MonoBehaviour:
   moveSpeed: 0
   progressBarController: {fileID: 0}
   audioManager: {fileID: 1460089775}
+  jumpSound: {fileID: 8300000, guid: 9b5327d936a829c4baf741c043831942, type: 3}
   miss: 0
 --- !u!4 &756075591
 Transform:

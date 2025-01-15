@@ -106,6 +106,8 @@ MonoBehaviour:
   moveSpeed: 0.4
   progressBarController: {fileID: 0}
   audioManager: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: 9b5327d936a829c4baf741c043831942, type: 3}
+  miss: 0
 --- !u!114 &-564178337673205831
 MonoBehaviour:
   m_ObjectHideFlags: 0

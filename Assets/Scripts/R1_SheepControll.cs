@@ -16,6 +16,10 @@ public class R1_SheepControll : MonoBehaviour
     public Camera mainCamera; // 메인 카메라 참조
     public Transform sheepTransform;
 
+    [Header("Sound")]
+    public AudioClip jumpSound; // 점프 효과음
+    private AudioSource audioSource;
+
     private bool isGameOver = false;
     private float startTime; // 게임 시작 시간
     private float playTime; //게임 종료 시간
@@ -43,6 +47,9 @@ public class R1_SheepControll : MonoBehaviour
         }
 
         startTime = Time.time;
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
     void Update()
@@ -56,9 +63,10 @@ public class R1_SheepControll : MonoBehaviour
             // 소리 크기가 특정 임계값 이상일 때 점프 amplitude > 0.1f
             if (isGrounded && amplitude > 0.03f)
             {
+                PlayCollisionSound();
                 float jumpForce = amplitude * jumpForceMultiplier; // 소리 크기에 비례하여 점프 힘 계산
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // 위쪽으로 점프
-                isGrounded = false; // 공중 상태로 변경
+                isGrounded = false; // 공중 상태로 변경 
                 backgroundScroll.StartScroll(); // 배경 이동 시작
                 Debug.Log($"Jump triggered with amplitude: {amplitude}, force: {jumpForce}");
             }
@@ -144,5 +152,14 @@ public class R1_SheepControll : MonoBehaviour
     {
         yield return new WaitForSeconds(4f); // 2초 대기
         SceneManager.LoadScene("R2_Intro"); // Scene2로 전환
+    }
+
+     void PlayCollisionSound()
+    {
+        // AudioClip이 설정되어 있으면 재생
+        if (jumpSound != null)
+        {
+            audioSource.PlayOneShot(jumpSound);
+        }
     }
 }

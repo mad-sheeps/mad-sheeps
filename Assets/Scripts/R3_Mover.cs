@@ -13,6 +13,10 @@ public class R3_Mover : MonoBehaviour
     public AudioManager audioManager;
     private int score;  //progress bar 깎일 점수
 
+    [Header("Sound")]
+    public AudioClip jumpSound; // 점프 효과음
+    private AudioSource audioSource;
+
     public int miss = 0;
 
     void Start()
@@ -28,6 +32,9 @@ public class R3_Mover : MonoBehaviour
             }
         }
         progressBarController = Object.FindAnyObjectByType<R3_ProgressBar>();
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
     void Update()
@@ -71,6 +78,9 @@ public class R3_Mover : MonoBehaviour
 
         if (other.CompareTag("Wolf"))
         {
+            Debug.Log("소리!!!나와!!!!");
+            PlayCollisionSound();
+            Debug.Log("소리!!!끝!!!!");
             Destroy(gameObject);
         }
     }
@@ -133,6 +143,17 @@ public class R3_Mover : MonoBehaviour
         {
             score = 5;
             SheepAnimator.SetTrigger("TreeSheep");
+        }
+    }
+
+    void PlayCollisionSound()
+    {
+        // AudioClip이 설정되어 있으면 재생
+        if (jumpSound != null)
+        {
+            Debug.Log("소리 이씀....");
+            Debug.Log($"재생할 AudioClip 이름: {jumpSound.name}");
+            audioSource.PlayOneShot(jumpSound);
         }
     }
 }
