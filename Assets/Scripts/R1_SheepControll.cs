@@ -14,8 +14,12 @@ public class R1_SheepControll : MonoBehaviour
     public AudioManager audioManager;
     public TextMeshProUGUI nextStageText;
     public Camera mainCamera; // 메인 카메라 참조
+    public Transform sheepTransform;
 
     private bool isGameOver = false;
+    private float startTime; // 게임 시작 시간
+    private float playTime; //게임 종료 시간
+    private float totalDistance;    // 총 이동거리
 
     void Start()
     {
@@ -37,6 +41,8 @@ public class R1_SheepControll : MonoBehaviour
         {
             mainCamera = Camera.main;
         }
+
+        startTime = Time.time;
     }
 
     void Update()
@@ -77,6 +83,17 @@ public class R1_SheepControll : MonoBehaviour
         //장애물 충돌
         if (collision.gameObject.name == "sharp" || collision.gameObject.tag == "spin")
         {
+            totalDistance = sheepTransform.position.x + 1.23f;  //총 움직인 거리
+            playTime = Time.time - startTime;   //총 시간
+            //점수 저장
+            int score = Mathf.RoundToInt(totalDistance / playTime);
+            PlayerPrefs.SetInt("Round1", score);
+            PlayerPrefs.Save();
+
+            int round1 = PlayerPrefs.GetInt("Round1");
+            Debug.Log("round1 total score : " + round1);
+            PlayerPrefs.Save();
+
             Debug.Log("장애물 충돌! 다음 스테이지로 이동...");
             StartNextStage();
         }
@@ -89,6 +106,17 @@ public class R1_SheepControll : MonoBehaviour
         // 뷰포트 좌표가 카메라 밖으로 벗어났는지 체크
         if (viewportPos.y < 0 || viewportPos.y > 1 || viewportPos.x < 0 || viewportPos.x > 1)
         {
+            //점수 저장
+            totalDistance = sheepTransform.position.x + 1.23f;  //총 움직인 거리
+            playTime = Time.time - startTime;   //총 시간
+            int score = Mathf.RoundToInt(totalDistance / playTime);
+            PlayerPrefs.SetInt("Round1", score);
+            PlayerPrefs.Save();
+
+            int round1 = PlayerPrefs.GetInt("Round1");
+            Debug.Log("round1 total score : " + round1);
+            PlayerPrefs.Save();
+
             Debug.Log("양이 카메라 밖으로 벗어났습니다!");
             StartNextStage(); // 게임 오버 처리
         }

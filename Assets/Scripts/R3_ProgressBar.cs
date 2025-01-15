@@ -6,11 +6,16 @@ public class R3_ProgressBar : MonoBehaviour
     public RectTransform overlayRectTransform; // 흰색 오버레이 RectTransform
     public R3_WolfHurt wolf;
     private Rigidbody2D wolfRigidbody;
+    public R3_Mover moveScript;
 
     [Header("Settings")]
     public float maxWidth = 214.83f; // 프로그래스 바의 최대 길이 (빨간 배경의 총 길이)
     private float currentOverlayWidth = 0f; // 흰색 오버레이의 현재 길이
     public Vector2 jumpForce = new Vector2(-10f, 10f);
+
+    [Header("Time")]
+    private float startTime; // 게임 시작 시간
+    private float playTime; //게임 종료 시간
 
     void Start()
     {
@@ -22,6 +27,8 @@ public class R3_ProgressBar : MonoBehaviour
 
         wolf = Object.FindAnyObjectByType<R3_WolfHurt>();
         wolfRigidbody = wolf.GetComponent<Rigidbody2D>();
+
+        startTime = Time.time;
     }
 
     // 흰색 오버레이 값 설정
@@ -34,6 +41,14 @@ public class R3_ProgressBar : MonoBehaviour
 
         if (currentOverlayWidth >= maxWidth)
         {
+            int miss = moveScript.miss;
+            playTime = Time.time - startTime;   //총 시간
+            int score = Mathf.RoundToInt((100 - miss) / playTime);
+            PlayerPrefs.SetInt("Round3", score);
+            PlayerPrefs.Save();
+
+            int round3 = PlayerPrefs.GetInt("Round3");
+            Debug.Log("round3 total score : " + round3);
             MoveWolf();
         }
     }
