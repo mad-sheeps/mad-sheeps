@@ -49,7 +49,7 @@ public class R3_Mover : MonoBehaviour
         
         // 상자 내부에서만 소리를 감지하여 발사 audioManager.IsSoundDetectedAmplitude(0.01f)
         //Input.GetKeyDown(KeyCode.Space)
-        if (isInsideBox && Input.GetKeyDown(KeyCode.Space))
+        if (isInsideBox && audioManager.IsSoundDetectedAmplitude(0.01f))
         {
             //Debug.Log("Sound detected and weapon is inside the box! Triggering action...");
             isMovingRight = true;

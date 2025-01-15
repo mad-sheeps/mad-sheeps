@@ -198,7 +198,7 @@ public class R2_Sheeps : MonoBehaviour
     IEnumerator GameOverTransition()
     {
         yield return new WaitForSeconds(4f); // 2초 대기
-        SceneManager.LoadScene("Round3_Scene");
+        SceneManager.LoadScene("R3_Intro");
     }
 
     void PlayCollisionSound()

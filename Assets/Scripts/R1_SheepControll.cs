@@ -54,7 +54,7 @@ public class R1_SheepControll : MonoBehaviour
             amplitude = audioManager.GetJumpAmplitude();
 
             // 소리 크기가 특정 임계값 이상일 때 점프 amplitude > 0.1f
-            if (isGrounded && amplitude > 0.05f)
+            if (isGrounded && amplitude > 0.03f)
             {
                 float jumpForce = amplitude * jumpForceMultiplier; // 소리 크기에 비례하여 점프 힘 계산
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // 위쪽으로 점프
@@ -68,6 +68,7 @@ public class R1_SheepControll : MonoBehaviour
         {
             backgroundScroll.UpdateScroll(rb.linearVelocity.y); // 속도 기반으로 배경 이동
         }
+
         CheckOutOfBounds();
     }
 
@@ -83,29 +84,33 @@ public class R1_SheepControll : MonoBehaviour
         //장애물 충돌
         if (collision.gameObject.name == "sharp" || collision.gameObject.tag == "spin")
         {
-            totalDistance = sheepTransform.position.x + 1.23f;  //총 움직인 거리
-            playTime = Time.time - startTime;   //총 시간
-            //점수 저장
-            int score = Mathf.RoundToInt(totalDistance / playTime);
-            PlayerPrefs.SetInt("Round1", score);
-            PlayerPrefs.Save();
+            if(sheepTransform.position.x > -1.23f){
+                totalDistance = sheepTransform.position.x + 1.23f;  //총 움직인 거리
+                playTime = Time.time - startTime;   //총 시간
+                //점수 저장
+                int score = Mathf.RoundToInt(totalDistance / playTime * 100);
+                PlayerPrefs.SetInt("Round1", score);
+                PlayerPrefs.Save();
 
-            int round1 = PlayerPrefs.GetInt("Round1");
-            Debug.Log("round1 total score : " + round1);
-            PlayerPrefs.Save();
+                int round1 = PlayerPrefs.GetInt("Round1");
+                Debug.Log("round1 total score : " + round1);
+                PlayerPrefs.Save();
 
-            Debug.Log("장애물 충돌! 다음 스테이지로 이동...");
-            StartNextStage();
+                Debug.Log("장애물 충돌! 다음 스테이지로 이동...");
+                StartNextStage();
+            }
         }
     }
     private void CheckOutOfBounds()
     {
+        Debug.Log("Checking if sheep is out of bounds...");
         // 양의 월드 좌표를 카메라 뷰포트 좌표로 변환
         Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
 
         // 뷰포트 좌표가 카메라 밖으로 벗어났는지 체크
-        if (viewportPos.y < 0 || viewportPos.y > 1 || viewportPos.x < 0 || viewportPos.x > 1)
+        if (viewportPos.y < -0.1f || viewportPos.y > 1.1f || viewportPos.x < -0.1f || viewportPos.x > 1.1f)
         {
+            Debug.Log("Sheep is out of bounds!");
             //점수 저장
             totalDistance = sheepTransform.position.x + 1.23f;  //총 움직인 거리
             playTime = Time.time - startTime;   //총 시간
@@ -138,6 +143,6 @@ public class R1_SheepControll : MonoBehaviour
     System.Collections.IEnumerator TransitionToNextScene()
     {
         yield return new WaitForSeconds(4f); // 2초 대기
-        SceneManager.LoadScene("Round2_Scene"); // Scene2로 전환
+        SceneManager.LoadScene("R2_Intro"); // Scene2로 전환
     }
 }
