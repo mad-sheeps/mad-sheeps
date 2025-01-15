@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 227359244}
   - component: {fileID: 227359246}
   m_Layer: 5
-  m_Name: Image
+  m_Name: progress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,9 +295,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlayRectTransform: {fileID: 227359243}
-  wolf: {fileID: 0}
+  wolf: {fileID: 653884081}
+  moveScript: {fileID: 756075590}
   maxWidth: 214.83
   jumpForce: {x: -2.5, y: 2.5}
+  isGameOver: 0
 --- !u!1 &359993987
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,6 +697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerAnimator: {fileID: 653884077}
+  progressBar: {fileID: 227359246}
 --- !u!50 &653884082
 Rigidbody2D:
   serializedVersion: 5
@@ -772,6 +775,7 @@ MonoBehaviour:
   - {fileID: 7345359116245481931, guid: e6d2a8780dea08043b7865c92a7216cf, type: 3}
   - {fileID: 7345359116245481931, guid: f010a9075d14d364bbdc9634226e04e3, type: 3}
   - {fileID: 7345359116245481931, guid: 90dbeb02dad21524482d362c485dd819, type: 3}
+  progressBar: {fileID: 227359246}
 --- !u!1 &658459481
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +945,7 @@ MonoBehaviour:
   moveSpeed: 0
   progressBarController: {fileID: 0}
   audioManager: {fileID: 1460089775}
+  miss: 0
 --- !u!4 &756075591
 Transform:
   m_ObjectHideFlags: 0
@@ -951,6 +956,54 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.20065817, y: -1.6353804, z: 0.09139285}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &859442729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 859442731}
+  - component: {fileID: 859442730}
+  m_Layer: 0
+  m_Name: SceneControll
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &859442730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859442729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f3e6f7dd5ee4a138723b09afac67ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wolf: {fileID: 653884076}
+  mainCamera: {fileID: 658459483}
+  nextSceneName: Score_Scene
+  delayBeforeSceneChange: 1.5
+--- !u!4 &859442731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859442729}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9485793, y: -2.137738, z: 0.074959725}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1605,3 +1658,4 @@ SceneRoots:
   - {fileID: 756075591}
   - {fileID: 1185830324}
   - {fileID: 359993991}
+  - {fileID: 859442731}

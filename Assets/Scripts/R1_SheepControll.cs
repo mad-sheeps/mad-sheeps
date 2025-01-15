@@ -138,6 +138,6 @@ public class R1_SheepControll : MonoBehaviour
     System.Collections.IEnumerator TransitionToNextScene()
     {
         yield return new WaitForSeconds(4f); // 2초 대기
-        //SceneManager.LoadScene("Round2_Scene"); // Scene2로 전환
+        SceneManager.LoadScene("Round2_Scene"); // Scene2로 전환
     }
 }

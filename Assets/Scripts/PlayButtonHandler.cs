@@ -6,4 +6,8 @@ public class PlayButtonHandler : MonoBehaviour
     {
         SceneManager.LoadScene("Round1_Scene"); 
     }
+    public void LoadMainScene()
+    {
+        SceneManager.LoadScene("Main_Scene"); 
+    }
 }

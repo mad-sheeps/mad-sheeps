@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7181184934763488639}
   - component: {fileID: 6055253627360897549}
   - component: {fileID: 6011432279002227211}
+  - component: {fileID: -4811850938957297584}
   m_Layer: 0
   m_Name: BasicSheep
   m_TagString: Untagged
@@ -134,3 +135,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9, y: 0.93333334}
   m_EdgeRadius: 0
+--- !u!95 &-4811850938957297584
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2328182284342144788}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a094e563798ee4b158caea82bc2ec6c0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
