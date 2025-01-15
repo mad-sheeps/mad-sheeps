@@ -159,6 +159,11 @@ public class R2_Sheeps : MonoBehaviour
             if (viewportPos.x < 0 || viewportPos.x > 1 || viewportPos.y < 0 || viewportPos.y > 1)
             {
                 Debug.Log("Game Over! Sheep went out of camera bounds.");
+                PlayerPrefs.SetInt("Round2", sheepCount);
+                PlayerPrefs.Save();
+
+                int round2 = PlayerPrefs.GetInt("Round2");
+                Debug.Log("round2 total score : " + round2);
                 GameOver();
                 break;
             }
